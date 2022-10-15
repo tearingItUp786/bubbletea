@@ -571,7 +571,7 @@ func (p *Program) RestoreTerminal() error {
 		p.renderer.enterAltScreen()
 	} else {
 		// entering alt screen already causes a repaint.
-		go p.Send(repaintMsg{})
+		p.renderer.repaint()
 	}
 
 	return nil
