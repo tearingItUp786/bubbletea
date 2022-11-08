@@ -16,10 +16,13 @@ import (
 	"io"
 	"os"
 	"os/signal"
+	"reflect"
 	"runtime/debug"
 	"sync"
 	"syscall"
+	"time"
 
+	"github.com/charmbracelet/bubbletea/tracer"
 	"github.com/containerd/console"
 	isatty "github.com/mattn/go-isatty"
 	"github.com/muesli/cancelreader"
@@ -122,6 +125,8 @@ type Program struct {
 	// as this value only comes into play on Windows, hence the ignore comment
 	// below.
 	windowsStdin *os.File //nolint:golint,structcheck,unused
+
+	tracer tracer.Tracer
 }
 
 // Quit is a special command that tells the Bubble Tea program to exit.
@@ -244,14 +249,51 @@ func (p *Program) handleCommands(cmds chan Cmd) chan struct{} {
 				// possible to cancel them so we'll have to leak the goroutine
 				// until Cmd returns.
 				go func() {
+					tc := tracer.NewCommand()
+					if p.tracer != nil {
+						p.tracer.Command(tc)
+					}
+
 					msg := cmd() // this can be long.
 					p.Send(msg)
+
+					if p.tracer != nil {
+						p.traceCommand(tc, msg)
+					}
 				}()
 			}
 		}
 	}()
 
 	return ch
+}
+
+func (p *Program) traceCommand(tc tracer.Command, msg Msg) {
+	t := "nil"
+	if msg != nil {
+		t = reflect.TypeOf(msg).String()
+	}
+
+	tc.Finished = time.Now()
+	tc.Type = t
+	tc.Msg = fmt.Sprintf("%v", msg)
+
+	p.tracer.Command(tc)
+}
+
+func (p *Program) traceMessage(model Model, msg Msg) {
+	if p.tracer != nil {
+		t := "nil"
+		if msg != nil {
+			t = reflect.TypeOf(msg).String()
+		}
+
+		p.tracer.Message(tracer.Message{
+			Model: reflect.TypeOf(model).String(),
+			Type:  t,
+			Msg:   fmt.Sprintf("%v", msg),
+		})
+	}
 }
 
 // eventLoop is the central message loop. It receives and handles the default
@@ -266,6 +308,8 @@ func (p *Program) eventLoop(model Model, cmds chan Cmd) (Model, error) {
 			return model, err
 
 		case msg := <-p.msgs:
+			p.traceMessage(model, msg)
+
 			// Handle special internal messages.
 			switch msg := msg.(type) {
 			case quitMsg:

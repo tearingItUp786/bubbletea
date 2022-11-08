@@ -4,6 +4,7 @@ import (
 	"context"
 	"io"
 
+	"github.com/charmbracelet/bubbletea/tracer"
 	"github.com/muesli/termenv"
 )
 
@@ -149,5 +150,12 @@ func WithoutRenderer() ProgramOption {
 func WithANSICompressor() ProgramOption {
 	return func(p *Program) {
 		p.startupOptions |= withANSICompressor
+	}
+}
+
+// WithTracer sets a tracer for the program. This is useful for debugging.
+func WithTracer(t tracer.Tracer) ProgramOption {
+	return func(p *Program) {
+		p.tracer = t
 	}
 }
