@@ -10,8 +10,6 @@ import (
 	"github.com/charmbracelet/lipgloss"
 )
 
-const listHeight = 14
-
 var (
 	titleStyle        = lipgloss.NewStyle().MarginLeft(2)
 	itemStyle         = lipgloss.NewStyle().PaddingLeft(4)
@@ -95,22 +93,22 @@ func (m model) View() string {
 }
 
 func main() {
-	items := []list.Item{
-		item("Ramen"),
-		item("Tomato Soup"),
-		item("Hamburgers"),
-		item("Cheeseburgers"),
-		item("Currywurst"),
-		item("Okonomiyaki"),
-		item("Pasta"),
-		item("Fillet Mignon"),
-		item("Caviar"),
-		item("Just Wine"),
-	}
-
-	const defaultWidth = 20
-
-	l := list.New(items, itemDelegate{}, defaultWidth, listHeight)
+	l := list.New(
+		list.WithSize(0, 14),
+		list.WithDelegate(itemDelegate{}),
+		list.WithItems(
+			item("Ramen"),
+			item("Tomato Soup"),
+			item("Hamburgers"),
+			item("Cheeseburgers"),
+			item("Currywurst"),
+			item("Okonomiyaki"),
+			item("Pasta"),
+			item("Fillet Mignon"),
+			item("Caviar"),
+			item("Just Wine"),
+		),
+	)
 	l.Title = "What do you want for dinner?"
 	l.SetShowStatusBar(false)
 	l.SetFilteringEnabled(false)
