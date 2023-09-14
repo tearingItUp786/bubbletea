@@ -16,7 +16,12 @@ type model int
 type tickMsg time.Time
 
 func main() {
-	p := tea.NewProgram(model(5), tea.WithAltScreen())
+	f, err := tea.LogToFile("log.txt", "")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
+	p := tea.NewProgram(model(50), tea.WithAltScreen(), tea.WithMouseAllMotion())
 	if _, err := p.Run(); err != nil {
 		log.Fatal(err)
 	}

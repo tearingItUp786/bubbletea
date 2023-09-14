@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 
 	tea "github.com/charmbracelet/bubbletea"
@@ -66,6 +67,11 @@ func (m model) View() string {
 }
 
 func main() {
+	f, err := tea.LogToFile("log.txt", "")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
 	if _, err := tea.NewProgram(model{}).Run(); err != nil {
 		fmt.Println("Error running program:", err)
 		os.Exit(1)

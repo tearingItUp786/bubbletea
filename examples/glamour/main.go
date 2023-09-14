@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/charmbracelet/bubbles/viewport"
@@ -91,6 +92,12 @@ func (e example) Init() tea.Cmd {
 
 func (e example) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
+	case tea.WindowSizeMsg:
+		e.viewport.Width = msg.Width
+		e.viewport.Height = msg.Height - 2
+		var cmd tea.Cmd
+		e.viewport, cmd = e.viewport.Update(msg)
+		return e, cmd
 	case tea.KeyMsg:
 		switch msg.String() {
 		case "q", "ctrl+c", "esc":
@@ -114,13 +121,18 @@ func (e example) helpView() string {
 }
 
 func main() {
+	f, err := tea.LogToFile("log.txt", "")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
 	model, err := newExample()
 	if err != nil {
 		fmt.Println("Could not initialize Bubble Tea model:", err)
 		os.Exit(1)
 	}
 
-	if _, err := tea.NewProgram(model).Run(); err != nil {
+	if _, err := tea.NewProgram(model, tea.WithAltScreen()).Run(); err != nil {
 		fmt.Println("Bummer, there's been an error:", err)
 		os.Exit(1)
 	}

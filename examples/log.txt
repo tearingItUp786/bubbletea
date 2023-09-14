@@ -1,0 +1,837 @@
+2023/09/14 16:38:56 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:38:56 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_WINDOW_INPUT
+2023/09/14 16:39:47 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:39:47 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_WINDOW_INPUT
+2023/09/14 16:39:49 Read 1 events:
+2023/09/14 16:40:16 Read 1 events:
+2023/09/14 16:40:17 Read 1 events:
+2023/09/14 16:40:19 Read 1 events:
+2023/09/14 16:40:21 Read 1 events:
+2023/09/14 16:40:48 Read 1 events:
+2023/09/14 16:40:51 Read 1 events:
+2023/09/14 16:42:46 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:42:46 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_WINDOW_INPUT
+2023/09/14 16:42:47 Read 1 events:
+2023/09/14 16:43:03 Read 1 events:
+2023/09/14 16:43:18 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:43:18 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_WINDOW_INPUT
+2023/09/14 16:43:21 Read 1 events:
+2023/09/14 16:43:21    FocusEvent[true]
+2023/09/14 16:43:22 Read 1 events:
+2023/09/14 16:43:22    KeyEvent['a', up, KeyCode: 65, ScanCode: 30]
+2023/09/14 16:43:23 Read 1 events:
+2023/09/14 16:43:23    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:43:23 Read 1 events:
+2023/09/14 16:43:23    KeyEvent['c', up, KeyCode: 67, ScanCode: 46]
+2023/09/14 16:43:24 Read 1 events:
+2023/09/14 16:43:24    KeyEvent['b', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:44:47 Read 1 events:
+2023/09/14 16:44:47    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 16:45:47 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:45:47 Setting mode to: ENABLE_MOUSE_INPUT|ENABLE_WINDOW_INPUT
+2023/09/14 16:45:47 Read 1 events:
+2023/09/14 16:45:47    KeyEvent['\x00', down, Alt, KeyCode: 18, ScanCode: 56]
+2023/09/14 16:46:09 Read 1 events:
+2023/09/14 16:46:09    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 16:49:33 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:49:33 Setting mode to: ENABLE_MOUSE_INPUT|ENABLE_WINDOW_INPUT
+2023/09/14 16:49:37 Read 1 events:
+2023/09/14 16:49:37    KeyEvent['c', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:49:37 Read 1 events:
+2023/09/14 16:49:37    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:49:37 Read 1 events:
+2023/09/14 16:49:37    KeyEvent['f', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:49:37 Read 1 events:
+2023/09/14 16:49:37    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:49:38 Read 1 events:
+2023/09/14 16:49:38    KeyEvent['f', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:49:38 Read 1 events:
+2023/09/14 16:49:38    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:49:40 Read 1 events:
+2023/09/14 16:49:40    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:51:16 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:51:16 Setting mode to: ENABLE_MOUSE_INPUT|ENABLE_WINDOW_INPUT
+2023/09/14 16:51:19 Read 1 events:
+2023/09/14 16:51:19    FocusEvent[false]
+2023/09/14 16:51:25 Read 1 events:
+2023/09/14 16:51:25    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:51:27 Read 1 events:
+2023/09/14 16:51:27    KeyEvent['a', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:51:27 Read 1 events:
+2023/09/14 16:51:27    KeyEvent['s', up, KeyCode: 83, ScanCode: 31]
+2023/09/14 16:51:27 Read 1 events:
+2023/09/14 16:51:27    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:51:27 Read 1 events:
+2023/09/14 16:51:27    KeyEvent['l', up, KeyCode: 76, ScanCode: 38]
+2023/09/14 16:51:29 Read 1 events:
+2023/09/14 16:51:29    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:51:32 Read 1 events:
+2023/09/14 16:51:32    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:51:35 Read 1 events:
+2023/09/14 16:51:35    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:51:37 Read 1 events:
+2023/09/14 16:51:37    KeyEvent['b', up, KeyCode: 66, ScanCode: 48]
+2023/09/14 16:51:37 Read 1 events:
+2023/09/14 16:51:37    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:51:38 Read 1 events:
+2023/09/14 16:51:38    KeyEvent['g', up, KeyCode: 71, ScanCode: 34]
+2023/09/14 16:51:38 Read 1 events:
+2023/09/14 16:51:38    KeyEvent['k', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:51:38 Read 1 events:
+2023/09/14 16:51:38    KeyEvent['k', up, KeyCode: 75, ScanCode: 37]
+2023/09/14 16:51:47 Read 1 events:
+2023/09/14 16:51:47    KeyEvent['s', up, KeyCode: 83, ScanCode: 31]
+2023/09/14 16:51:47 Read 1 events:
+2023/09/14 16:51:47    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:51:47 Read 1 events:
+2023/09/14 16:51:47    KeyEvent['f', up, KeyCode: 70, ScanCode: 33]
+2023/09/14 16:51:47 Read 1 events:
+2023/09/14 16:51:47    KeyEvent['g', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:51:48 Read 1 events:
+2023/09/14 16:51:48    KeyEvent['s', up, KeyCode: 83, ScanCode: 31]
+2023/09/14 16:51:48 Read 1 events:
+2023/09/14 16:51:48    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:51:48 Read 1 events:
+2023/09/14 16:51:48    KeyEvent['f', up, KeyCode: 70, ScanCode: 33]
+2023/09/14 16:51:48 Read 1 events:
+2023/09/14 16:51:48    KeyEvent['g', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:51:50 Read 1 events:
+2023/09/14 16:51:50    KeyEvent['v', up, KeyCode: 86, ScanCode: 47]
+2023/09/14 16:51:51 Read 1 events:
+2023/09/14 16:51:51    KeyEvent['\x00', down, Shift, KeyCode: 16, ScanCode: 42]
+2023/09/14 16:51:51 Read 1 events:
+2023/09/14 16:51:51    KeyEvent['F', up, Shift, KeyCode: 70, ScanCode: 33]
+2023/09/14 16:51:52 Read 1 events:
+2023/09/14 16:51:52    KeyEvent['\x00', up, KeyCode: 16, ScanCode: 42]
+2023/09/14 16:52:00 Read 1 events:
+2023/09/14 16:52:00    KeyEvent['\x18', up, CTRL, KeyCode: 88, ScanCode: 45]
+2023/09/14 16:52:01 Read 1 events:
+2023/09/14 16:52:01    KeyEvent['\x00', up, KeyCode: 17, ScanCode: 29]
+2023/09/14 16:52:14 Read 1 events:
+2023/09/14 16:52:14    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 16:53:55 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:53:55 Setting mode to: ENABLE_MOUSE_INPUT|ENABLE_WINDOW_INPUT
+2023/09/14 16:53:57 Read 1 events:
+2023/09/14 16:53:57    KeyEvent['a', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:53:58 Read 1 events:
+2023/09/14 16:53:58    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:54:09 Read 1 events:
+2023/09/14 16:54:09    WindowBufferSizeEvent[(88, 29)]
+2023/09/14 16:54:13 Read 1 events:
+2023/09/14 16:54:13    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 16:54:13 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:54:23 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:54:23 Setting mode to: ENABLE_MOUSE_INPUT|ENABLE_WINDOW_INPUT
+2023/09/14 16:54:23 Read 1 events:
+2023/09/14 16:54:23    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:54:24 Read 1 events:
+2023/09/14 16:54:24    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 16:54:24 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:54:26 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:54:26 Setting mode to: ENABLE_MOUSE_INPUT|ENABLE_WINDOW_INPUT
+2023/09/14 16:54:28 Read 1 events:
+2023/09/14 16:54:28    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:54:30 Read 1 events:
+2023/09/14 16:54:30    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 16:54:30 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:56:17 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:56:17 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 16:56:22 Read 1 events:
+2023/09/14 16:56:22    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:56:23 Read 1 events:
+2023/09/14 16:56:23    KeyEvent['v', up, KeyCode: 86, ScanCode: 47]
+2023/09/14 16:56:24 Read 1 events:
+2023/09/14 16:56:24    KeyEvent['c', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:56:25 Read 1 events:
+2023/09/14 16:56:25    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 16:56:25 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:56:27 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:56:27 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 16:56:28 Read 1 events:
+2023/09/14 16:56:28    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:56:29 Read 1 events:
+2023/09/14 16:56:29    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:56:32 Read 1 events:
+2023/09/14 16:56:32    WindowBufferSizeEvent[(93, 33)]
+2023/09/14 16:56:41 Read 1 events:
+2023/09/14 16:56:41    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:56:43 Read 1 events:
+2023/09/14 16:56:43    WindowBufferSizeEvent[(94, 31)]
+2023/09/14 16:56:58 Read 1 events:
+2023/09/14 16:56:58    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:57:02 Read 1 events:
+2023/09/14 16:57:02    WindowBufferSizeEvent[(73, 25)]
+2023/09/14 16:57:06 Read 1 events:
+2023/09/14 16:57:06    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:57:09 Read 1 events:
+2023/09/14 16:57:09    WindowBufferSizeEvent[(78, 28)]
+2023/09/14 16:57:13 Read 1 events:
+2023/09/14 16:57:13    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 16:57:13 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:57:29 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:57:29 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 16:57:32 Read 1 events:
+2023/09/14 16:57:32    WindowBufferSizeEvent[(81, 30)]
+2023/09/14 16:57:43 Read 1 events:
+2023/09/14 16:57:43    KeyEvent['f', up, KeyCode: 70, ScanCode: 33]
+2023/09/14 16:57:45 Read 1 events:
+2023/09/14 16:57:45    WindowBufferSizeEvent[(84, 31)]
+2023/09/14 16:57:46 Read 1 events:
+2023/09/14 16:57:46    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:57:47 Read 1 events:
+2023/09/14 16:57:47    WindowBufferSizeEvent[(86, 34)]
+2023/09/14 16:57:50 Read 1 events:
+2023/09/14 16:57:50    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:57:52 Read 1 events:
+2023/09/14 16:57:52    WindowBufferSizeEvent[(75, 25)]
+2023/09/14 16:57:53 Read 1 events:
+2023/09/14 16:57:53    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:57:55 Read 1 events:
+2023/09/14 16:57:55    WindowBufferSizeEvent[(69, 21)]
+2023/09/14 16:57:56 Read 1 events:
+2023/09/14 16:57:56    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:57:57 Read 1 events:
+2023/09/14 16:57:57    FocusEvent[false]
+2023/09/14 16:58:17 Read 1 events:
+2023/09/14 16:58:17    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:58:19 Read 1 events:
+2023/09/14 16:58:19    FocusEvent[false]
+2023/09/14 16:58:24 Read 1 events:
+2023/09/14 16:58:24    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 16:58:24 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:59:03 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:59:03 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 16:59:05 Read 1 events:
+2023/09/14 16:59:05    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:59:07 Read 1 events:
+2023/09/14 16:59:07    KeyEvent['f', up, KeyCode: 70, ScanCode: 33]
+2023/09/14 16:59:07 Read 1 events:
+2023/09/14 16:59:07    KeyEvent['z', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:59:12 Read 1 events:
+2023/09/14 16:59:12    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:59:14 Read 1 events:
+2023/09/14 16:59:14    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:59:16 Read 1 events:
+2023/09/14 16:59:16    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:59:18 Read 1 events:
+2023/09/14 16:59:18    KeyEvent['\x00', down, CTRL, KeyCode: 17, ScanCode: 29]
+2023/09/14 16:59:18 Read 1 events:
+2023/09/14 16:59:18    KeyEvent['\x03', up, CTRL, KeyCode: 67, ScanCode: 46]
+2023/09/14 16:59:18 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:59:31 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 16:59:31 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 16:59:32 Read 1 events:
+2023/09/14 16:59:32    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:59:36 Read 1 events:
+2023/09/14 16:59:36    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:59:37 Read 1 events:
+2023/09/14 16:59:37    WindowBufferSizeEvent[(66, 23)]
+2023/09/14 16:59:39 Read 1 events:
+2023/09/14 16:59:39    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:59:40 Read 1 events:
+2023/09/14 16:59:40    WindowBufferSizeEvent[(71, 21)]
+2023/09/14 16:59:41 Read 1 events:
+2023/09/14 16:59:41    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:59:42 Read 1 events:
+2023/09/14 16:59:42    WindowBufferSizeEvent[(63, 21)]
+2023/09/14 16:59:43 Read 1 events:
+2023/09/14 16:59:43    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:59:45 Read 1 events:
+2023/09/14 16:59:45    WindowBufferSizeEvent[(53, 21)]
+2023/09/14 16:59:49 Read 1 events:
+2023/09/14 16:59:49    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 16:59:52 Read 1 events:
+2023/09/14 16:59:52    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 16:59:53 Read 1 events:
+2023/09/14 16:59:53    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 16:59:53 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:04:59 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:04:59 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 17:05:02 Read 1 events:
+2023/09/14 17:05:02    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:05:04 Read 1 events:
+2023/09/14 17:05:04    KeyEvent['c', up, KeyCode: 67, ScanCode: 46]
+2023/09/14 17:05:04 Read 2 events:
+2023/09/14 17:05:04    KeyEvent['z', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:05:04    KeyEvent['z', up, KeyCode: 90, ScanCode: 44]
+2023/09/14 17:05:06 Read 1 events:
+2023/09/14 17:05:06    KeyEvent['c', up, KeyCode: 67, ScanCode: 46]
+2023/09/14 17:05:07 Read 2 events:
+2023/09/14 17:05:07    KeyEvent['v', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:05:07    KeyEvent['v', up, KeyCode: 86, ScanCode: 47]
+2023/09/14 17:05:08 Read 1 events:
+2023/09/14 17:05:08    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:05:08 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:05:11 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:05:11 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 17:05:13 Read 1 events:
+2023/09/14 17:05:13    WindowBufferSizeEvent[(68, 21)]
+2023/09/14 17:05:22 Read 1 events:
+2023/09/14 17:05:22    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:05:24 Read 1 events:
+2023/09/14 17:05:24    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:05:24 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:15:42 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:15:42 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 17:15:44 read input events: size of input record buffer cannot be zero
+2023/09/14 17:15:57 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:16:32 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:16:32 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 17:16:35 Read 1 events:
+2023/09/14 17:16:35    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:16:36 Read 1 events:
+2023/09/14 17:16:36    KeyEvent['v', up, KeyCode: 86, ScanCode: 47]
+2023/09/14 17:16:38 Read 1 events:
+2023/09/14 17:16:38    KeyEvent['c', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:16:40 Read 1 events:
+2023/09/14 17:16:40    KeyEvent['x', up, KeyCode: 88, ScanCode: 45]
+2023/09/14 17:16:41 Read 1 events:
+2023/09/14 17:16:41    KeyEvent['z', up, KeyCode: 90, ScanCode: 44]
+2023/09/14 17:16:44 Read 1 events:
+2023/09/14 17:16:44    WindowBufferSizeEvent[(58, 17)]
+2023/09/14 17:17:02 Read 1 events:
+2023/09/14 17:17:02    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:17:04 Read 1 events:
+2023/09/14 17:17:04    FocusEvent[true]
+2023/09/14 17:17:06 Read 1 events:
+2023/09/14 17:17:06    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:17:09 Read 1 events:
+2023/09/14 17:17:09    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:17:10 Read 1 events:
+2023/09/14 17:17:10    FocusEvent[true]
+2023/09/14 17:17:27 Read 1 events:
+2023/09/14 17:17:27    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:17:27 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:18:22 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:18:22 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 17:18:26 Read 1 events:
+2023/09/14 17:18:26    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:18:26 Read 1 events:
+2023/09/14 17:18:26    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:18:26 Read 2 events:
+2023/09/14 17:18:26    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:18:26    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:18:27 Read 1 events:
+2023/09/14 17:18:27    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:18:31 Read 1 events:
+2023/09/14 17:18:31    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:18:32 Read 1 events:
+2023/09/14 17:18:32    FocusEvent[true]
+2023/09/14 17:18:38 Read 1 events:
+2023/09/14 17:18:38    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:18:41 Read 1 events:
+2023/09/14 17:18:41    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:18:55 Read 1 events:
+2023/09/14 17:18:55    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:18:56 Read 2 events:
+2023/09/14 17:18:56    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:18:56    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:18:58 Read 1 events:
+2023/09/14 17:18:58    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:18:58 Read 2 events:
+2023/09/14 17:18:58    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:18:58    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:19:00 Read 1 events:
+2023/09/14 17:19:00    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:19:00 Read 2 events:
+2023/09/14 17:19:00    KeyEvent['f', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:19:00    KeyEvent['f', up, KeyCode: 70, ScanCode: 33]
+2023/09/14 17:19:00 Read 1 events:
+2023/09/14 17:19:00    KeyEvent['a', up, KeyCode: 65, ScanCode: 30]
+2023/09/14 17:19:00 Read 1 events:
+2023/09/14 17:19:00    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:19:01 Read 1 events:
+2023/09/14 17:19:01    KeyEvent['f', up, KeyCode: 70, ScanCode: 33]
+2023/09/14 17:19:01 Read 2 events:
+2023/09/14 17:19:01    KeyEvent['s', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:19:01    KeyEvent['s', up, KeyCode: 83, ScanCode: 31]
+2023/09/14 17:19:01 Read 1 events:
+2023/09/14 17:19:01    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:19:02 Read 1 events:
+2023/09/14 17:19:02    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:19:03 Read 1 events:
+2023/09/14 17:19:03    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:19:05 Read 1 events:
+2023/09/14 17:19:05    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:19:05 Read 1 events:
+2023/09/14 17:19:05    KeyEvent['f', up, KeyCode: 70, ScanCode: 33]
+2023/09/14 17:19:05 Read 2 events:
+2023/09/14 17:19:05    KeyEvent['x', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:19:05    KeyEvent['x', up, KeyCode: 88, ScanCode: 45]
+2023/09/14 17:19:06 Read 1 events:
+2023/09/14 17:19:06    KeyEvent['v', up, KeyCode: 86, ScanCode: 47]
+2023/09/14 17:19:06 Read 2 events:
+2023/09/14 17:19:06    KeyEvent['c', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:19:06    KeyEvent['c', up, KeyCode: 67, ScanCode: 46]
+2023/09/14 17:19:18 Read 1 events:
+2023/09/14 17:19:18    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:19:21 Read 2 events:
+2023/09/14 17:19:21    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:19:21    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:19:21 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:19:29 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:19:29 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 17:19:30 Read 1 events:
+2023/09/14 17:19:30    KeyEvent['\x04', up, CTRL, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:19:31 Read 2 events:
+2023/09/14 17:19:31    KeyEvent['\x04', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:19:31    KeyEvent['\x04', up, CTRL, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:19:33 Read 1 events:
+2023/09/14 17:19:33    KeyEvent['\x04', up, CTRL, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:19:34 Read 1 events:
+2023/09/14 17:19:34    KeyEvent['\x00', up, KeyCode: 17, ScanCode: 29]
+2023/09/14 17:19:35 Read 1 events:
+2023/09/14 17:19:35    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:19:36 Read 1 events:
+2023/09/14 17:19:36    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:19:36 Read 1 events:
+2023/09/14 17:19:36    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:19:36 Read 1 events:
+2023/09/14 17:19:36    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:19:37 Read 1 events:
+2023/09/14 17:19:37    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:19:37 Read 1 events:
+2023/09/14 17:19:37    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:19:37 Read 1 events:
+2023/09/14 17:19:37    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:19:37 Read 1 events:
+2023/09/14 17:19:37    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:19:37 Read 1 events:
+2023/09/14 17:19:37    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:19:37 Read 1 events:
+2023/09/14 17:19:37    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:19:38 Read 1 events:
+2023/09/14 17:19:38    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:19:38 Read 1 events:
+2023/09/14 17:19:38    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:19:38 Read 1 events:
+2023/09/14 17:19:38    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:19:51 Read 1 events:
+2023/09/14 17:19:51    KeyEvent['\x03', up, CTRL, KeyCode: 67, ScanCode: 46]
+2023/09/14 17:19:52 Read 2 events:
+2023/09/14 17:19:52    KeyEvent['\x03', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:19:52    KeyEvent['\x03', up, CTRL, KeyCode: 67, ScanCode: 46]
+2023/09/14 17:19:52 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:19:55 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:19:55 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 17:20:00 Read 1 events:
+2023/09/14 17:20:00    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:20:01 Read 1 events:
+2023/09/14 17:20:01    WindowBufferSizeEvent[(84, 36)]
+2023/09/14 17:20:05 Read 1 events:
+2023/09/14 17:20:05    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:20:08 Read 1 events:
+2023/09/14 17:20:08    WindowBufferSizeEvent[(84, 31)]
+2023/09/14 17:20:10 Read 1 events:
+2023/09/14 17:20:10    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:20:11 Read 1 events:
+2023/09/14 17:20:11    WindowBufferSizeEvent[(83, 32)]
+2023/09/14 17:20:14 Read 1 events:
+2023/09/14 17:20:14    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:20:16 Read 2 events:
+2023/09/14 17:20:16    KeyEvent['k', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:20:16    KeyEvent['k', up, KeyCode: 75, ScanCode: 37]
+2023/09/14 17:20:16 Read 1 events:
+2023/09/14 17:20:16    KeyEvent['k', up, KeyCode: 75, ScanCode: 37]
+2023/09/14 17:20:17 Read 1 events:
+2023/09/14 17:20:17    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:20:17 Read 1 events:
+2023/09/14 17:20:17    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:20:20 Read 1 events:
+2023/09/14 17:20:20    WindowBufferSizeEvent[(69, 32)]
+2023/09/14 17:20:22 Read 1 events:
+2023/09/14 17:20:22    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:20:22 Read 1 events:
+2023/09/14 17:20:22    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:20:23 Read 1 events:
+2023/09/14 17:20:23    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:20:25 Read 2 events:
+2023/09/14 17:20:25    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:20:25    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:20:25 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:22:59 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:22:59 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 17:23:16 Read 1 events:
+2023/09/14 17:23:16    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:23:16 Read 2 events:
+2023/09/14 17:23:16    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:23:16    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:23:16 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:23:18 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:23:18 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 17:23:22 Read 1 events:
+2023/09/14 17:23:22    FocusEvent[true]
+2023/09/14 17:23:25 Read 1 events:
+2023/09/14 17:23:25    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:23:26 Read 2 events:
+2023/09/14 17:23:26    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:23:26    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:23:26 Read 1 events:
+2023/09/14 17:23:26    KeyEvent['u', up, KeyCode: 85, ScanCode: 22]
+2023/09/14 17:23:29 Read 1 events:
+2023/09/14 17:23:29    FocusEvent[true]
+2023/09/14 17:23:34 Read 1 events:
+2023/09/14 17:23:34    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:23:37 Read 1 events:
+2023/09/14 17:23:37    WindowBufferSizeEvent[(78, 35)]
+2023/09/14 17:23:41 Read 1 events:
+2023/09/14 17:23:41    KeyEvent['u', up, KeyCode: 85, ScanCode: 22]
+2023/09/14 17:23:46 Read 1 events:
+2023/09/14 17:23:46    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:23:48 Read 1 events:
+2023/09/14 17:23:48    WindowBufferSizeEvent[(78, 30)]
+2023/09/14 17:23:49 Read 1 events:
+2023/09/14 17:23:49    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:23:50 Read 2 events:
+2023/09/14 17:23:50    KeyEvent['u', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:23:50    KeyEvent['u', up, KeyCode: 85, ScanCode: 22]
+2023/09/14 17:23:50 Read 1 events:
+2023/09/14 17:23:50    KeyEvent['u', up, KeyCode: 85, ScanCode: 22]
+2023/09/14 17:23:50 Read 2 events:
+2023/09/14 17:23:50    KeyEvent['u', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:23:50    KeyEvent['u', up, KeyCode: 85, ScanCode: 22]
+2023/09/14 17:23:52 Read 1 events:
+2023/09/14 17:23:52    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:23:57 Read 1 events:
+2023/09/14 17:23:57    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:23:59 Read 1 events:
+2023/09/14 17:23:59    FocusEvent[true]
+2023/09/14 17:24:03 Read 1 events:
+2023/09/14 17:24:03    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:24:05 Read 1 events:
+2023/09/14 17:24:05    WindowBufferSizeEvent[(78, 32)]
+2023/09/14 17:24:36 Read 1 events:
+2023/09/14 17:24:36    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:24:36 Read 2 events:
+2023/09/14 17:24:36    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:24:36    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:24:36 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:24:38 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:24:38 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 17:24:40 Read 1 events:
+2023/09/14 17:24:40    KeyEvent['f', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:24:41 Read 1 events:
+2023/09/14 17:24:41    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:24:41 Read 2 events:
+2023/09/14 17:24:41    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:24:41    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:24:43 Read 1 events:
+2023/09/14 17:24:43    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:24:44 Read 1 events:
+2023/09/14 17:24:44    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:24:45 Read 2 events:
+2023/09/14 17:24:45    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:24:45    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:24:46 Read 1 events:
+2023/09/14 17:24:46    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:24:47 Read 1 events:
+2023/09/14 17:24:47    FocusEvent[false]
+2023/09/14 17:24:47 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:24:54 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:24:54 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 17:24:55 Read 1 events:
+2023/09/14 17:24:55    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:24:57 Read 1 events:
+2023/09/14 17:24:57    KeyEvent['u', up, KeyCode: 85, ScanCode: 22]
+2023/09/14 17:24:57 Read 1 events:
+2023/09/14 17:24:57    KeyEvent['u', up, KeyCode: 85, ScanCode: 22]
+2023/09/14 17:24:58 Read 1 events:
+2023/09/14 17:24:58    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:24:58 Read 1 events:
+2023/09/14 17:24:58    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:24:59 Read 2 events:
+2023/09/14 17:24:59    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:24:59    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:00 Read 1 events:
+2023/09/14 17:25:00    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:01 Read 2 events:
+2023/09/14 17:25:01    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:25:01    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:02 Read 1 events:
+2023/09/14 17:25:02    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:02 Read 2 events:
+2023/09/14 17:25:02    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:25:02    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:03 Read 1 events:
+2023/09/14 17:25:03    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:03 Read 2 events:
+2023/09/14 17:25:03    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:25:03    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:03 Read 1 events:
+2023/09/14 17:25:03    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:04 Read 2 events:
+2023/09/14 17:25:04    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:25:04    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:04 Read 1 events:
+2023/09/14 17:25:04    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:04 Read 2 events:
+2023/09/14 17:25:04    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:25:04    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:04 Read 1 events:
+2023/09/14 17:25:04    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:05 Read 2 events:
+2023/09/14 17:25:05    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:25:05    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:05 Read 1 events:
+2023/09/14 17:25:05    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:06 Read 2 events:
+2023/09/14 17:25:06    KeyEvent['k', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:25:06    KeyEvent['k', up, KeyCode: 75, ScanCode: 37]
+2023/09/14 17:25:06 Read 1 events:
+2023/09/14 17:25:06    KeyEvent['k', up, KeyCode: 75, ScanCode: 37]
+2023/09/14 17:25:07 Read 2 events:
+2023/09/14 17:25:07    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:25:07    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:07 Read 1 events:
+2023/09/14 17:25:07    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:25:09 Read 1 events:
+2023/09/14 17:25:09    WindowBufferSizeEvent[(78, 33)]
+2023/09/14 17:25:11 Read 1 events:
+2023/09/14 17:25:11    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:25:12 Read 1 events:
+2023/09/14 17:25:12    FocusEvent[true]
+2023/09/14 17:25:16 Read 1 events:
+2023/09/14 17:25:16    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:25:17 Read 1 events:
+2023/09/14 17:25:17    WindowBufferSizeEvent[(78, 39)]
+2023/09/14 17:25:19 Read 1 events:
+2023/09/14 17:25:19    KeyEvent['u', up, KeyCode: 85, ScanCode: 22]
+2023/09/14 17:25:19 Read 1 events:
+2023/09/14 17:25:19    KeyEvent['u', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:25:20 Read 1 events:
+2023/09/14 17:25:20    KeyEvent['u', up, KeyCode: 85, ScanCode: 22]
+2023/09/14 17:25:25 Read 1 events:
+2023/09/14 17:25:25    FocusEvent[false]
+2023/09/14 17:33:17 Read 1 events:
+2023/09/14 17:33:17    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:33:19 Read 2 events:
+2023/09/14 17:33:19    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:33:19    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:33:19 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:33:22 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:33:22 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 17:33:22 Read 1 events:
+2023/09/14 17:33:22    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:33:23 Read 1 events:
+2023/09/14 17:33:23    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:33:23 Read 1 events:
+2023/09/14 17:33:23    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:33:26 Read 1 events:
+2023/09/14 17:33:26    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:33:31 Read 1 events:
+2023/09/14 17:33:31    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:33:36 Read 1 events:
+2023/09/14 17:33:36    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:33:42 Read 1 events:
+2023/09/14 17:33:42    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:33:48 Read 1 events:
+2023/09/14 17:33:48    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:33:49 Read 2 events:
+2023/09/14 17:33:49    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:33:49    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:33:49 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:33:52 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:33:52 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 17:33:55 Read 1 events:
+2023/09/14 17:33:55    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:33:58 Read 1 events:
+2023/09/14 17:33:58    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:34:04 Read 1 events:
+2023/09/14 17:34:04    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:34:08 Read 1 events:
+2023/09/14 17:34:08    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:34:09 Read 2 events:
+2023/09/14 17:34:09    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:34:09    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:34:09 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:34:27 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:34:27 Setting mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE|ENABLE_WINDOW_INPUT
+2023/09/14 17:34:28 Read 1 events:
+2023/09/14 17:34:28    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:34:30 Read 1 events:
+2023/09/14 17:34:30    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:34:31 Read 2 events:
+2023/09/14 17:34:31    KeyEvent['j', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:34:31    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:34:32 Read 1 events:
+2023/09/14 17:34:32    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:34:34 Read 1 events:
+2023/09/14 17:34:34    WindowBufferSizeEvent[(80, 37)]
+2023/09/14 17:34:40 Read 1 events:
+2023/09/14 17:34:40    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:34:43 Read 1 events:
+2023/09/14 17:34:43    WindowBufferSizeEvent[(80, 33)]
+2023/09/14 17:34:53 Read 1 events:
+2023/09/14 17:34:53    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:34:56 Read 1 events:
+2023/09/14 17:34:56    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:35:02 Read 1 events:
+2023/09/14 17:35:02    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:35:06 Read 1 events:
+2023/09/14 17:35:06    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:35:10 Read 1 events:
+2023/09/14 17:35:10    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:35:17 Read 1 events:
+2023/09/14 17:35:17    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:35:21 Read 1 events:
+2023/09/14 17:35:21    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:35:33 Read 1 events:
+2023/09/14 17:35:33    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:35:36 Read 1 events:
+2023/09/14 17:35:36    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:35:39 Read 1 events:
+2023/09/14 17:35:39    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:35:43 Read 1 events:
+2023/09/14 17:35:43    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:37:03 Read 1 events:
+2023/09/14 17:37:03    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:37:04 Read 2 events:
+2023/09/14 17:37:04    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:37:04    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:37:04 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:37:07 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:37:07 Setting mode to: ENABLE_MOUSE_INPUT|ENABLE_WINDOW_INPUT
+2023/09/14 17:37:08 Read 1 events:
+2023/09/14 17:37:08    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:37:09 Read 1 events:
+2023/09/14 17:37:09    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:37:10 Read 1 events:
+2023/09/14 17:37:10    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:37:21 Read 1 events:
+2023/09/14 17:37:21    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:37:26 Read 1 events:
+2023/09/14 17:37:26    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:37:33 Read 1 events:
+2023/09/14 17:37:33    KeyEvent['j', up, KeyCode: 74, ScanCode: 36]
+2023/09/14 17:37:34 Read 1 events:
+2023/09/14 17:37:34    WindowBufferSizeEvent[(87, 34)]
+2023/09/14 17:37:46 Read 1 events:
+2023/09/14 17:37:46    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:37:50 Read 1 events:
+2023/09/14 17:37:50    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:37:53 Read 1 events:
+2023/09/14 17:37:53    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:37:58 Read 1 events:
+2023/09/14 17:37:58    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:39:26 Read 1 events:
+2023/09/14 17:39:26    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:39:26 Read 2 events:
+2023/09/14 17:39:26    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:39:26    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:39:26 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:39:28 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:39:28 Setting mode to: ENABLE_MOUSE_INPUT|ENABLE_WINDOW_INPUT
+2023/09/14 17:39:29 Read 3 events:
+2023/09/14 17:39:29    KeyEvent['\x1b', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:39:29    KeyEvent['[', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:39:29    KeyEvent['B', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:39:29 Read 1 events:
+2023/09/14 17:39:29    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:39:29 Read 1 events:
+2023/09/14 17:39:29    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:39:29 Read 1 events:
+2023/09/14 17:39:29    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:39:31 Read 1 events:
+2023/09/14 17:39:31    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:39:31 Read 1 events:
+2023/09/14 17:39:31    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:39:31 Read 1 events:
+2023/09/14 17:39:31    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:39:32 Read 1 events:
+2023/09/14 17:39:32    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:39:36 Read 1 events:
+2023/09/14 17:39:36    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:39:42 Read 1 events:
+2023/09/14 17:39:42    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:40:10 Read 1 events:
+2023/09/14 17:40:10    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:40:12 Read 3 events:
+2023/09/14 17:40:12    KeyEvent['\x1b', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:40:12    KeyEvent['[', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:40:12    KeyEvent['B', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:40:12 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:40:14 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:40:14 Setting mode to: ENABLE_MOUSE_INPUT|ENABLE_WINDOW_INPUT
+2023/09/14 17:40:15 Read 1 events:
+2023/09/14 17:40:15    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:40:15 Read 1 events:
+2023/09/14 17:40:15    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:40:16 Read 1 events:
+2023/09/14 17:40:16    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:40:16 Read 1 events:
+2023/09/14 17:40:16    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:40:17 Read 1 events:
+2023/09/14 17:40:17    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:40:17 Read 1 events:
+2023/09/14 17:40:17    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:40:17 Read 1 events:
+2023/09/14 17:40:17    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:40:17 Read 1 events:
+2023/09/14 17:40:17    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:40:21 Read 1 events:
+2023/09/14 17:40:21    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:40:29 Read 1 events:
+2023/09/14 17:40:29    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:40:30 Read 1 events:
+2023/09/14 17:40:30    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:40:35 Read 1 events:
+2023/09/14 17:40:35    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:59:09 Read 1 events:
+2023/09/14 17:59:09    KeyEvent['\x03', up, CTRL, KeyCode: 67, ScanCode: 46]
+2023/09/14 17:59:09 Read 1 events:
+2023/09/14 17:59:09    KeyEvent['\x00', up, KeyCode: 17, ScanCode: 29]
+2023/09/14 17:59:09 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:59:11 Input mode: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE
+2023/09/14 17:59:11 Setting mode to: ENABLE_MOUSE_INPUT|ENABLE_WINDOW_INPUT
+2023/09/14 17:59:12 Read 3 events:
+2023/09/14 17:59:12    KeyEvent['\x1b', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:59:12    KeyEvent['[', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:59:12    KeyEvent['B', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:59:13 Read 1 events:
+2023/09/14 17:59:13    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:59:15 Read 1 events:
+2023/09/14 17:59:15    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:59:19 Read 1 events:
+2023/09/14 17:59:19    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:59:21 Read 1 events:
+2023/09/14 17:59:21    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:59:21 Read 1 events:
+2023/09/14 17:59:21    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:59:21 Read 1 events:
+2023/09/14 17:59:21    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:59:22 Read 1 events:
+2023/09/14 17:59:22    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:59:22 Read 1 events:
+2023/09/14 17:59:22    KeyEvent['\x00', up, Enhanced, KeyCode: 40, ScanCode: 80]
+2023/09/14 17:59:22 Read 1 events:
+2023/09/14 17:59:22    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:59:22 Read 1 events:
+2023/09/14 17:59:22    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:59:22 Read 1 events:
+2023/09/14 17:59:22    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:59:23 Read 1 events:
+2023/09/14 17:59:23    KeyEvent['\x00', up, Enhanced, KeyCode: 38, ScanCode: 72]
+2023/09/14 17:59:28 Read 1 events:
+2023/09/14 17:59:28    WindowBufferSizeEvent[(87, 37)]
+2023/09/14 17:59:36 Read 1 events:
+2023/09/14 17:59:36    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:59:37 Read 2 events:
+2023/09/14 17:59:37    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:59:37    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:59:37 Read 1 events:
+2023/09/14 17:59:37    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:59:38 Read 1 events:
+2023/09/14 17:59:38    WindowBufferSizeEvent[(96, 41)]
+2023/09/14 17:59:39 Read 1 events:
+2023/09/14 17:59:39    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:59:40 Read 2 events:
+2023/09/14 17:59:40    KeyEvent['d', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:59:40    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:59:42 Read 1 events:
+2023/09/14 17:59:42    KeyEvent['d', up, KeyCode: 68, ScanCode: 32]
+2023/09/14 17:59:58 Read 1 events:
+2023/09/14 17:59:58    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:59:58 Read 2 events:
+2023/09/14 17:59:58    KeyEvent['q', down, KeyCode: 0, ScanCode: 0]
+2023/09/14 17:59:58    KeyEvent['q', up, KeyCode: 81, ScanCode: 16]
+2023/09/14 17:59:58 Resetting input mode to: ENABLE_ECHO_INPUT|ENABLE_INSERT_MODE|ENABLE_LINE_INPUT|ENABLE_MOUSE_INPUT|ENABLE_PROCESSED_INPUT|ENABLE_QUICK_EDIT_MODE

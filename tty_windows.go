@@ -4,9 +4,11 @@
 package tea
 
 import (
+	"log"
 	"os"
 
 	"github.com/containerd/console"
+	"github.com/muesli/termenv"
 )
 
 func (p *Program) initInput() error {
@@ -22,6 +24,13 @@ func (p *Program) initInput() error {
 		// Note: this will panic if it fails.
 		c := console.Current()
 		p.console = c
+	}
+
+	var err error
+	p.restoreOutput, err = enableWindowsConInput(p)
+	if err != nil {
+		log.Printf("Error enabling Windows console input: %s", err)
+		p.restoreOutput, _ = termenv.EnableVirtualTerminalProcessing(p.output)
 	}
 
 	return nil

@@ -21,10 +21,12 @@ import (
 	"syscall"
 
 	"github.com/containerd/console"
+	"github.com/erikgeiser/coninput"
 	isatty "github.com/mattn/go-isatty"
 	"github.com/muesli/cancelreader"
 	"github.com/muesli/termenv"
 	"golang.org/x/sync/errgroup"
+	"golang.org/x/sys/windows"
 )
 
 // ErrProgramKilled is returned by [Program.Run] when the program got killed.
@@ -164,6 +166,10 @@ type Program struct {
 	// below.
 	windowsStdin *os.File //nolint:golint,structcheck,unused
 
+	conInput    windows.Handle
+	cancelEvent windows.Handle
+	inputEvents []coninput.InputRecord
+
 	filter func(Model, Msg) Msg
 
 	// fps is the frames per second we should set on the renderer, if
@@ -185,6 +191,7 @@ func NewProgram(model Model, opts ...ProgramOption) *Program {
 	p := &Program{
 		initialModel: model,
 		msgs:         make(chan Msg),
+		inputEvents:  make([]coninput.InputRecord, 4),
 	}
 
 	// Apply all options to the program.
@@ -207,8 +214,6 @@ func NewProgram(model Model, opts ...ProgramOption) *Program {
 		// cache detected color values
 		termenv.WithColorCache(true)(p.output)
 	}
-
-	p.restoreOutput, _ = termenv.EnableVirtualTerminalProcessing(p.output)
 
 	return p
 }
@@ -523,6 +528,9 @@ func (p *Program) Run() (Model, error) {
 
 	// Process commands.
 	handlers.add(p.handleCommands(cmds))
+
+	// Handle Windows console input.
+	handlers.add(p.handleConInput())
 
 	// Run event loop, handle updates and draw.
 	model, err := p.eventLoop(model, cmds)
