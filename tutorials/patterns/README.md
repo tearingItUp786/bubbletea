@@ -65,6 +65,8 @@ func (m Model) tick(id, tag int) tea.Cmd {
 }
 ```
 
+## I want to use Bubble Tea to display processes outside the application
+
 [basic]: https://github.com/charmbracelet/bubbletea/blob/master/examples/composable-views/main.go
 [glow]: https://github.com/charmbracelet/glow/blob/f0734709f0be19a34e648caaf63340938a50caa2/ui/ui.go#L434
 [spinner]: https://github.com/charmbracelet/bubbles/blob/master/spinner/spinner.go
