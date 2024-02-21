@@ -12,9 +12,10 @@ import (
 )
 
 func main() {
-	p := tea.NewProgram(initialModel())
+	p := tea.NewProgram()
+	m := initialModel(p.RenderContext())
 
-	if _, err := p.Run(); err != nil {
+	if _, err := p.Run(m); err != nil {
 		log.Fatal(err)
 	}
 }
@@ -26,8 +27,8 @@ type model struct {
 	err      error
 }
 
-func initialModel() model {
-	ti := textarea.New()
+func initialModel(ctx *tea.Context) model {
+	ti := textarea.New(ctx.Renderer)
 	ti.Placeholder = "Once upon a time..."
 	ti.Focus()
 
