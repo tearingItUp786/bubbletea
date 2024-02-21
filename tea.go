@@ -21,6 +21,7 @@ import (
 	"sync/atomic"
 	"syscall"
 
+	"github.com/charmbracelet/lipgloss"
 	"github.com/containerd/console"
 	isatty "github.com/mattn/go-isatty"
 	"github.com/muesli/cancelreader"
@@ -58,6 +59,11 @@ type Model interface {
 // to another part of your program. That can almost always be done in the
 // update function.
 type Cmd func() Msg
+
+type Context struct {
+	// Renderer ready to use.
+	Renderer *lipgloss.Renderer
+}
 
 type inputType int
 
@@ -126,16 +132,15 @@ func (h handlers) shutdown() {
 
 // Program is a terminal user interface.
 type Program struct {
-	initialModel Model
-
 	// Configuration options that will set as the program is initializing,
 	// treated as bits. These options can be set via various ProgramOptions.
 	startupOptions startupOptions
 
 	inputType inputType
 
-	ctx    context.Context
-	cancel context.CancelFunc
+	renderContext *Context
+	ctx           context.Context
+	cancel        context.CancelFunc
 
 	msgs     chan Msg
 	errs     chan error
@@ -184,10 +189,9 @@ func Quit() Msg {
 type QuitMsg struct{}
 
 // NewProgram creates a new Program.
-func NewProgram(model Model, opts ...ProgramOption) *Program {
+func NewProgram(opts ...ProgramOption) *Program {
 	p := &Program{
-		initialModel: model,
-		msgs:         make(chan Msg),
+		msgs: make(chan Msg),
 	}
 
 	// Apply all options to the program.
@@ -212,6 +216,12 @@ func NewProgram(model Model, opts ...ProgramOption) *Program {
 	}
 
 	p.restoreOutput, _ = termenv.EnableVirtualTerminalProcessing(p.output)
+
+	p.renderContext = &Context{
+		// FIXME: this isn't ideal, as TTY may be nil. We should share
+		// outputs here.
+		Renderer: lipgloss.NewRenderer(p.output.TTY()),
+	}
 
 	return p
 }
@@ -426,7 +436,7 @@ func (p *Program) eventLoop(model Model, cmds chan Cmd) (Model, error) {
 // Run initializes the program and runs its event loops, blocking until it gets
 // terminated by either [Program.Quit], [Program.Kill], or its signal handler.
 // Returns the final model.
-func (p *Program) Run() (Model, error) {
+func (p *Program) Run(model Model) (Model, error) {
 	handlers := handlers{}
 	cmds := make(chan Cmd)
 	p.errs = make(chan error)
@@ -454,7 +464,7 @@ func (p *Program) Run() (Model, error) {
 
 		f, err := openInputTTY()
 		if err != nil {
-			return p.initialModel, err
+			return model, err
 		}
 		defer f.Close() //nolint:errcheck
 		p.input = f
@@ -463,7 +473,7 @@ func (p *Program) Run() (Model, error) {
 		// Open a new TTY, by request
 		f, err := openInputTTY()
 		if err != nil {
-			return p.initialModel, err
+			return model, err
 		}
 		defer f.Close() //nolint:errcheck
 		p.input = f
@@ -497,7 +507,7 @@ func (p *Program) Run() (Model, error) {
 	// Check if output is a TTY before entering raw mode, hiding the cursor and
 	// so on.
 	if err := p.initTerminal(); err != nil {
-		return p.initialModel, err
+		return model, err
 	}
 
 	// Honor program startup options.
@@ -516,7 +526,6 @@ func (p *Program) Run() (Model, error) {
 	}
 
 	// Initialize the program.
-	model := p.initialModel
 	if initCmd := model.Init(); initCmd != nil {
 		ch := make(chan struct{})
 		handlers.add(ch)
@@ -586,8 +595,8 @@ func (p *Program) Run() (Model, error) {
 // or its signal handler. Returns the final model.
 //
 // Deprecated: please use [Program.Run] instead.
-func (p *Program) StartReturningModel() (Model, error) {
-	return p.Run()
+func (p *Program) StartReturningModel(m Model) (Model, error) {
+	return p.Run(m)
 }
 
 // Start initializes the program and runs its event loops, blocking until it
@@ -595,8 +604,8 @@ func (p *Program) StartReturningModel() (Model, error) {
 // handler.
 //
 // Deprecated: please use [Program.Run] instead.
-func (p *Program) Start() error {
-	_, err := p.Run()
+func (p *Program) Start(m Model) error {
+	_, err := p.Run(m)
 	return err
 }
 
@@ -727,4 +736,8 @@ func (p *Program) Printf(template string, args ...interface{}) {
 	p.msgs <- printLineMessage{
 		messageBody: fmt.Sprintf(template, args...),
 	}
+}
+
+func (p *Program) RenderContext() *Context {
+	return p.renderContext
 }
