@@ -8,12 +8,12 @@ import (
 func TestMouseEvent_String(t *testing.T) {
 	tt := []struct {
 		name     string
-		event    MouseEvent
+		event    MouseMsg
 		expected string
 	}{
 		{
 			name: "unknown",
-			event: MouseEvent{
+			event: MouseMsg{
 				Action: MouseActionPress,
 				Button: MouseButtonNone,
 				Type:   MouseUnknown,
@@ -22,7 +22,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "left",
-			event: MouseEvent{
+			event: MouseMsg{
 				Action: MouseActionPress,
 				Button: MouseButtonLeft,
 				Type:   MouseLeft,
@@ -31,7 +31,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "right",
-			event: MouseEvent{
+			event: MouseMsg{
 				Action: MouseActionPress,
 				Button: MouseButtonRight,
 				Type:   MouseRight,
@@ -40,7 +40,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "middle",
-			event: MouseEvent{
+			event: MouseMsg{
 				Action: MouseActionPress,
 				Button: MouseButtonMiddle,
 				Type:   MouseMiddle,
@@ -49,7 +49,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "release",
-			event: MouseEvent{
+			event: MouseMsg{
 				Action: MouseActionRelease,
 				Button: MouseButtonNone,
 				Type:   MouseRelease,
@@ -58,7 +58,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "wheel up",
-			event: MouseEvent{
+			event: MouseMsg{
 				Action: MouseActionPress,
 				Button: MouseButtonWheelUp,
 				Type:   MouseWheelUp,
@@ -67,7 +67,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "wheel down",
-			event: MouseEvent{
+			event: MouseMsg{
 				Action: MouseActionPress,
 				Button: MouseButtonWheelDown,
 				Type:   MouseWheelDown,
@@ -76,7 +76,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "wheel left",
-			event: MouseEvent{
+			event: MouseMsg{
 				Action: MouseActionPress,
 				Button: MouseButtonWheelLeft,
 				Type:   MouseWheelLeft,
@@ -85,7 +85,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "wheel right",
-			event: MouseEvent{
+			event: MouseMsg{
 				Action: MouseActionPress,
 				Button: MouseButtonWheelRight,
 				Type:   MouseWheelRight,
@@ -94,7 +94,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "motion",
-			event: MouseEvent{
+			event: MouseMsg{
 				Action: MouseActionMotion,
 				Button: MouseButtonNone,
 				Type:   MouseMotion,
@@ -103,7 +103,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "shift+left release",
-			event: MouseEvent{
+			event: MouseMsg{
 				Type:   MouseLeft,
 				Action: MouseActionRelease,
 				Button: MouseButtonLeft,
@@ -113,7 +113,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "shift+left",
-			event: MouseEvent{
+			event: MouseMsg{
 				Type:   MouseLeft,
 				Action: MouseActionPress,
 				Button: MouseButtonLeft,
@@ -123,7 +123,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "ctrl+shift+left",
-			event: MouseEvent{
+			event: MouseMsg{
 				Type:   MouseLeft,
 				Action: MouseActionPress,
 				Button: MouseButtonLeft,
@@ -134,7 +134,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "alt+left",
-			event: MouseEvent{
+			event: MouseMsg{
 				Type:   MouseLeft,
 				Action: MouseActionPress,
 				Button: MouseButtonLeft,
@@ -144,7 +144,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "ctrl+left",
-			event: MouseEvent{
+			event: MouseMsg{
 				Type:   MouseLeft,
 				Action: MouseActionPress,
 				Button: MouseButtonLeft,
@@ -154,7 +154,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "ctrl+alt+left",
-			event: MouseEvent{
+			event: MouseMsg{
 				Type:   MouseLeft,
 				Action: MouseActionPress,
 				Button: MouseButtonLeft,
@@ -165,7 +165,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "ctrl+alt+shift+left",
-			event: MouseEvent{
+			event: MouseMsg{
 				Type:   MouseLeft,
 				Action: MouseActionPress,
 				Button: MouseButtonLeft,
@@ -177,7 +177,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "ignore coordinates",
-			event: MouseEvent{
+			event: MouseMsg{
 				X:      100,
 				Y:      200,
 				Type:   MouseLeft,
@@ -188,7 +188,7 @@ func TestMouseEvent_String(t *testing.T) {
 		},
 		{
 			name: "broken type",
-			event: MouseEvent{
+			event: MouseMsg{
 				Type:   MouseEventType(-100),
 				Action: MouseAction(-110),
 				Button: MouseButton(-120),
@@ -228,13 +228,13 @@ func TestParseX10MouseEvent(t *testing.T) {
 	tt := []struct {
 		name     string
 		buf      []byte
-		expected MouseEvent
+		expected MouseMsg
 	}{
 		// Position.
 		{
 			name: "zero position",
 			buf:  encode(0b0000_0000, 0, 0),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      0,
 				Y:      0,
 				Type:   MouseLeft,
@@ -245,7 +245,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "max position",
 			buf:  encode(0b0000_0000, 222, 222), // Because 255 (max int8) - 32 - 1.
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      222,
 				Y:      222,
 				Type:   MouseLeft,
@@ -257,7 +257,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "left",
 			buf:  encode(0b0000_0000, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseLeft,
@@ -268,7 +268,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "left in motion",
 			buf:  encode(0b0010_0000, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseLeft,
@@ -279,7 +279,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "middle",
 			buf:  encode(0b0000_0001, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseMiddle,
@@ -290,7 +290,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "middle in motion",
 			buf:  encode(0b0010_0001, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseMiddle,
@@ -301,7 +301,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "right",
 			buf:  encode(0b0000_0010, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseRight,
@@ -312,7 +312,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "right in motion",
 			buf:  encode(0b0010_0010, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseRight,
@@ -323,7 +323,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "motion",
 			buf:  encode(0b0010_0011, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseMotion,
@@ -334,7 +334,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "wheel up",
 			buf:  encode(0b0100_0000, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseWheelUp,
@@ -345,7 +345,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "wheel down",
 			buf:  encode(0b0100_0001, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseWheelDown,
@@ -356,7 +356,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "wheel left",
 			buf:  encode(0b0100_0010, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseWheelLeft,
@@ -367,7 +367,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "wheel right",
 			buf:  encode(0b0100_0011, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseWheelRight,
@@ -378,7 +378,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "release",
 			buf:  encode(0b0000_0011, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseRelease,
@@ -389,7 +389,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "backward",
 			buf:  encode(0b1000_0000, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseBackward,
@@ -400,7 +400,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "forward",
 			buf:  encode(0b1000_0001, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseForward,
@@ -411,7 +411,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "button 10",
 			buf:  encode(0b1000_0010, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseUnknown,
@@ -422,7 +422,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "button 11",
 			buf:  encode(0b1000_0011, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseUnknown,
@@ -434,7 +434,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "alt+right",
 			buf:  encode(0b0000_1010, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Alt:    true,
@@ -446,7 +446,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "ctrl+right",
 			buf:  encode(0b0001_0010, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Ctrl:   true,
@@ -458,7 +458,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "left in motion",
 			buf:  encode(0b0010_0000, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Alt:    false,
@@ -470,7 +470,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "alt+right in motion",
 			buf:  encode(0b0010_1010, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Alt:    true,
@@ -482,7 +482,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "ctrl+right in motion",
 			buf:  encode(0b0011_0010, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Ctrl:   true,
@@ -494,7 +494,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "ctrl+alt+right",
 			buf:  encode(0b0001_1010, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Alt:    true,
@@ -507,7 +507,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "ctrl+wheel up",
 			buf:  encode(0b0101_0000, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Ctrl:   true,
@@ -519,7 +519,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "alt+wheel down",
 			buf:  encode(0b0100_1001, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Alt:    true,
@@ -531,7 +531,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "ctrl+alt+wheel down",
 			buf:  encode(0b0101_1001, 32, 16),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Alt:    true,
@@ -545,7 +545,7 @@ func TestParseX10MouseEvent(t *testing.T) {
 		{
 			name: "overflow position",
 			buf:  encode(0b0010_0000, 250, 223), // Because 255 (max int8) - 32 - 1.
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      -6,
 				Y:      -33,
 				Type:   MouseLeft,
@@ -619,13 +619,13 @@ func TestParseSGRMouseEvent(t *testing.T) {
 	tt := []struct {
 		name     string
 		buf      []byte
-		expected MouseEvent
+		expected MouseMsg
 	}{
 		// Position.
 		{
 			name: "zero position",
 			buf:  encode(0, 0, 0, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      0,
 				Y:      0,
 				Type:   MouseLeft,
@@ -636,7 +636,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "225 position",
 			buf:  encode(0, 225, 225, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      225,
 				Y:      225,
 				Type:   MouseLeft,
@@ -648,7 +648,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "left",
 			buf:  encode(0, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseLeft,
@@ -659,7 +659,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "left in motion",
 			buf:  encode(32, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseLeft,
@@ -670,7 +670,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "left release",
 			buf:  encode(0, 32, 16, true),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseRelease,
@@ -681,7 +681,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "middle",
 			buf:  encode(1, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseMiddle,
@@ -692,7 +692,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "middle in motion",
 			buf:  encode(33, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseMiddle,
@@ -703,7 +703,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "middle release",
 			buf:  encode(1, 32, 16, true),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseRelease,
@@ -714,7 +714,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "right",
 			buf:  encode(2, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseRight,
@@ -725,7 +725,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "right release",
 			buf:  encode(2, 32, 16, true),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseRelease,
@@ -736,7 +736,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "motion",
 			buf:  encode(35, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseMotion,
@@ -747,7 +747,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "wheel up",
 			buf:  encode(64, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseWheelUp,
@@ -758,7 +758,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "wheel down",
 			buf:  encode(65, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseWheelDown,
@@ -769,7 +769,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "wheel left",
 			buf:  encode(66, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseWheelLeft,
@@ -780,7 +780,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "wheel right",
 			buf:  encode(67, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseWheelRight,
@@ -791,7 +791,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "backward",
 			buf:  encode(128, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseBackward,
@@ -802,7 +802,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "backward in motion",
 			buf:  encode(160, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseBackward,
@@ -813,7 +813,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "forward",
 			buf:  encode(129, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseForward,
@@ -824,7 +824,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "forward in motion",
 			buf:  encode(161, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Type:   MouseForward,
@@ -836,7 +836,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "alt+right",
 			buf:  encode(10, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Alt:    true,
@@ -848,7 +848,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "ctrl+right",
 			buf:  encode(18, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Ctrl:   true,
@@ -860,7 +860,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "ctrl+alt+right",
 			buf:  encode(26, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Alt:    true,
@@ -873,7 +873,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "alt+wheel press",
 			buf:  encode(73, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Alt:    true,
@@ -885,7 +885,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "ctrl+wheel press",
 			buf:  encode(81, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Ctrl:   true,
@@ -897,7 +897,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "ctrl+alt+wheel press",
 			buf:  encode(89, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Alt:    true,
@@ -910,7 +910,7 @@ func TestParseSGRMouseEvent(t *testing.T) {
 		{
 			name: "ctrl+alt+shift+wheel press",
 			buf:  encode(93, 32, 16, false),
-			expected: MouseEvent{
+			expected: MouseMsg{
 				X:      32,
 				Y:      16,
 				Shift:  true,

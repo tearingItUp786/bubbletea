@@ -1,6 +1,7 @@
 package tea
 
 import (
+	"context"
 	"errors"
 	"fmt"
 	"io"
@@ -61,6 +62,30 @@ func (p *Program) initCancelReader() error {
 	go p.readLoop()
 
 	return nil
+}
+
+func readAnsiInput(ctx context.Context, msgs chan<- Msg, input io.Reader) error {
+	drv := NewDriver(input, os.Getenv("TERM"), 0)
+	for {
+		select {
+		case <-ctx.Done():
+			return ctx.Err()
+		default:
+		}
+
+		ev, err := drv.ReadInput()
+		if err != nil {
+			return err
+		}
+
+		for _, msg := range ev {
+			select {
+			case <-ctx.Done():
+				return ctx.Err()
+			case msgs <- msg:
+			}
+		}
+	}
 }
 
 func (p *Program) readLoop() {
