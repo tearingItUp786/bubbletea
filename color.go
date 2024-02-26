@@ -5,17 +5,13 @@ import (
 	"image/color"
 	"strconv"
 	"strings"
-
-	"github.com/charmbracelet/x/exp/term/input"
 )
 
-// FgColorEvent represents a foreground color change event.
-type FgColorEvent struct{ color.Color }
-
-var _ input.Event = FgColorEvent{}
+// FgColorMsg represents a foreground color change event.
+type FgColorMsg struct{ color.Color }
 
 // String implements input.Event.
-func (e FgColorEvent) String() string {
+func (e FgColorMsg) String() string {
 	r, g, b, a := e.RGBA()
 	r >>= 8
 	g >>= 8
@@ -24,18 +20,11 @@ func (e FgColorEvent) String() string {
 	return fmt.Sprintf("FgColor: [%02x]#%02x%02x%02x", a, r, g, b)
 }
 
-// Type implements input.Event.
-func (FgColorEvent) Type() string {
-	return "FgColor"
-}
-
-// BgColorEvent represents a background color change event.
-type BgColorEvent struct{ color.Color }
-
-var _ input.Event = BgColorEvent{}
+// BgColorMsg represents a background color change event.
+type BgColorMsg struct{ color.Color }
 
 // String implements input.Event.
-func (e BgColorEvent) String() string {
+func (e BgColorMsg) String() string {
 	r, g, b, a := e.RGBA()
 	r >>= 8
 	g >>= 8
@@ -44,29 +33,17 @@ func (e BgColorEvent) String() string {
 	return fmt.Sprintf("BgColor: [%02x]#%02x%02x%02x", a, r, g, b)
 }
 
-// Type implements input.Event.
-func (BgColorEvent) Type() string {
-	return "BgColor"
-}
-
-// CursorColorEvent represents a cursor color change event.
-type CursorColorEvent struct{ color.Color }
-
-var _ input.Event = CursorColorEvent{}
+// CursorColorMsg represents a cursor color change event.
+type CursorColorMsg struct{ color.Color }
 
 // String implements input.Event.
-func (e CursorColorEvent) String() string {
+func (e CursorColorMsg) String() string {
 	r, g, b, a := e.RGBA()
 	r >>= 8
 	g >>= 8
 	b >>= 8
 	a >>= 8
 	return fmt.Sprintf("CursorColor: [%02x]#%02x%02x%02x", a, r, g, b)
-}
-
-// Type implements input.Event.
-func (CursorColorEvent) Type() string {
-	return "CursorColor"
 }
 
 func xParseColor(s string) color.Color {

@@ -24,6 +24,9 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	var cmd tea.Cmd
 	switch msg := msg.(type) {
 	case tea.KeyMsg:
+		if msg.Action != tea.KeyPress {
+			break
+		}
 		switch m.prevKey.String() {
 		case "q":
 			if msg.String() == "q" {
@@ -33,53 +36,27 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			switch msg.String() {
 			case "b":
 				execute(sys.RequestBackgroundColor)
+			case "k":
+				cmd = tea.RequestKittyFlags
 			}
 		case "k":
 			switch msg.String() {
 			case "0":
-				m.kittyFlags = 0
-				execute(kitty.Disable(m.kittyFlags))
-			case "1":
-				if m.kittyFlags&kitty.DisambiguateEscapeCodes == 0 {
+				cmd = tea.DisableKittyKeyboard
+			default:
+				switch msg.String() {
+				case "1":
 					m.kittyFlags |= kitty.DisambiguateEscapeCodes
-					execute(kitty.Enable(m.kittyFlags))
-				} else {
-					m.kittyFlags &^= kitty.DisambiguateEscapeCodes
-					execute(kitty.Disable(m.kittyFlags))
-				}
-			case "2":
-				if m.kittyFlags&kitty.ReportEventTypes == 0 {
+				case "2":
 					m.kittyFlags |= kitty.ReportEventTypes
-					execute(kitty.Enable(m.kittyFlags))
-				} else {
-					m.kittyFlags &^= kitty.ReportEventTypes
-					execute(kitty.Disable(m.kittyFlags))
-				}
-			case "3":
-				if m.kittyFlags&kitty.ReportAlternateKeys == 0 {
+				case "3":
 					m.kittyFlags |= kitty.ReportAlternateKeys
-					execute(kitty.Enable(m.kittyFlags))
-				} else {
-					m.kittyFlags &^= kitty.ReportAlternateKeys
-					execute(kitty.Disable(m.kittyFlags))
-				}
-			case "4":
-				if m.kittyFlags&kitty.ReportAllKeys == 0 {
+				case "4":
 					m.kittyFlags |= kitty.ReportAllKeys
-					execute(kitty.Enable(m.kittyFlags))
-				} else {
-					m.kittyFlags &^= kitty.ReportAllKeys
-					execute(kitty.Disable(m.kittyFlags))
-				}
-			case "5":
-				if m.kittyFlags&kitty.ReportAssociatedKeys == 0 {
+				case "5":
 					m.kittyFlags |= kitty.ReportAssociatedKeys
-					execute(kitty.Enable(m.kittyFlags))
-				} else {
-					m.kittyFlags &^= kitty.ReportAssociatedKeys
-					execute(kitty.Disable(m.kittyFlags))
 				}
-
+				cmd = tea.EnableKittyKeyboard(m.kittyFlags)
 			}
 		}
 		m.prevKey = msg

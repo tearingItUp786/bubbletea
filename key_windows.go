@@ -38,11 +38,23 @@ func readConInputs(ctx context.Context, msgsch chan<- Msg, con windows.Handle) e
 				}
 
 				for i := 0; i < int(e.RepeatCount); i++ {
-					msgs = append(msgs, KeyMsg{
-						Type:  keyType(e),
-						Runes: []rune{e.Char},
-						Alt:   e.ControlKeyState.Contains(coninput.LEFT_ALT_PRESSED | coninput.RIGHT_ALT_PRESSED),
-					})
+
+					var mod Mod
+					if e.ControlKeyState.Contains(coninput.LEFT_ALT_PRESSED | coninput.RIGHT_ALT_PRESSED) {
+						mod |= Alt
+					}
+					var k KeyMsg
+					if e.Char != 0 {
+						k = vkCharMap[e.Char]
+					} else if vk, ok := vkKeyMap[e.VirtualKeyCode]; ok {
+						k = vk
+					} else {
+						k = KeyMsg{
+							Runes: []rune{e.Char},
+						}
+					}
+					k.Mod |= mod
+					msgs = append(msgs, k)
 				}
 			case coninput.WindowBufferSizeEventRecord:
 				msgs = append(msgs, WindowSizeMsg{
@@ -51,9 +63,7 @@ func readConInputs(ctx context.Context, msgsch chan<- Msg, con windows.Handle) e
 				})
 			case coninput.MouseEventRecord:
 				event := mouseEvent(ps, e)
-				if event.Type != MouseUnknown {
-					msgs = append(msgs, event)
-				}
+				msgs = append(msgs, event)
 				ps = e.ButtonState
 			case coninput.FocusEventRecord, coninput.MenuEventRecord:
 				// ignore
@@ -117,12 +127,20 @@ func mouseEventButton(p, s coninput.ButtonState) (button MouseButton, action Mou
 }
 
 func mouseEvent(p coninput.ButtonState, e coninput.MouseEventRecord) MouseMsg {
+	var mod Mod
+	if e.ControlKeyState.Contains(coninput.LEFT_ALT_PRESSED | coninput.RIGHT_ALT_PRESSED) {
+		mod |= Alt
+	}
+	if e.ControlKeyState.Contains(coninput.LEFT_CTRL_PRESSED | coninput.RIGHT_CTRL_PRESSED) {
+		mod |= Ctrl
+	}
+	if e.ControlKeyState.Contains(coninput.SHIFT_PRESSED) {
+		mod |= Shift
+	}
 	ev := MouseMsg{
-		X:     int(e.MousePositon.X),
-		Y:     int(e.MousePositon.Y),
-		Alt:   e.ControlKeyState.Contains(coninput.LEFT_ALT_PRESSED | coninput.RIGHT_ALT_PRESSED),
-		Ctrl:  e.ControlKeyState.Contains(coninput.LEFT_CTRL_PRESSED | coninput.RIGHT_CTRL_PRESSED),
-		Shift: e.ControlKeyState.Contains(coninput.SHIFT_PRESSED),
+		X:   int(e.MousePositon.X),
+		Y:   int(e.MousePositon.Y),
+		Mod: mod,
 	}
 	switch e.EventFlags {
 	case coninput.CLICK, coninput.DOUBLE_CLICK:
@@ -167,111 +185,53 @@ func mouseEvent(p coninput.ButtonState, e coninput.MouseEventRecord) MouseMsg {
 	return ev
 }
 
-func keyType(e coninput.KeyEventRecord) KeyType {
-	code := e.VirtualKeyCode
+var vkKeyMap = map[coninput.VirtualKeyCode]KeyMsg{
+	coninput.VK_RETURN: {Sym: KeyEnter},
+	coninput.VK_BACK:   {Sym: KeyBackspace},
+	coninput.VK_TAB:    {Sym: KeyTab},
+	coninput.VK_SPACE:  {Sym: KeySpace, Runes: []rune{' '}},
+	coninput.VK_ESCAPE: {Sym: KeyEscape},
+	coninput.VK_UP:     {Sym: KeyUp},
+	coninput.VK_DOWN:   {Sym: KeyDown},
+	coninput.VK_RIGHT:  {Sym: KeyRight},
+	coninput.VK_LEFT:   {Sym: KeyLeft},
+	coninput.VK_HOME:   {Sym: KeyHome},
+	coninput.VK_END:    {Sym: KeyEnd},
+	coninput.VK_PRIOR:  {Sym: KeyPgUp},
+	coninput.VK_NEXT:   {Sym: KeyPgDown},
+	coninput.VK_DELETE: {Sym: KeyDelete},
+	coninput.VK_OEM_4:  {Mod: Ctrl, Runes: []rune{'['}},
+}
 
-	switch code {
-	case coninput.VK_RETURN:
-		return KeyEnter
-	case coninput.VK_BACK:
-		return KeyBackspace
-	case coninput.VK_TAB:
-		return KeyTab
-	case coninput.VK_SPACE:
-		return KeyRunes // this could be KeySpace but on unix space also produces KeyRunes
-	case coninput.VK_ESCAPE:
-		return KeyEscape
-	case coninput.VK_UP:
-		return KeyUp
-	case coninput.VK_DOWN:
-		return KeyDown
-	case coninput.VK_RIGHT:
-		return KeyRight
-	case coninput.VK_LEFT:
-		return KeyLeft
-	case coninput.VK_HOME:
-		return KeyHome
-	case coninput.VK_END:
-		return KeyEnd
-	case coninput.VK_PRIOR:
-		return KeyPgUp
-	case coninput.VK_NEXT:
-		return KeyPgDown
-	case coninput.VK_DELETE:
-		return KeyDelete
-	default:
-		if e.ControlKeyState&(coninput.LEFT_CTRL_PRESSED|coninput.RIGHT_CTRL_PRESSED) == 0 {
-			return KeyRunes
-		}
-
-		switch e.Char {
-		case '@':
-			return KeyCtrlAt
-		case '\x01':
-			return KeyCtrlA
-		case '\x02':
-			return KeyCtrlB
-		case '\x03':
-			return KeyCtrlC
-		case '\x04':
-			return KeyCtrlD
-		case '\x05':
-			return KeyCtrlE
-		case '\x06':
-			return KeyCtrlF
-		case '\a':
-			return KeyCtrlG
-		case '\b':
-			return KeyCtrlH
-		case '\t':
-			return KeyCtrlI
-		case '\n':
-			return KeyCtrlJ
-		case '\v':
-			return KeyCtrlK
-		case '\f':
-			return KeyCtrlL
-		case '\r':
-			return KeyCtrlM
-		case '\x0e':
-			return KeyCtrlN
-		case '\x0f':
-			return KeyCtrlO
-		case '\x10':
-			return KeyCtrlP
-		case '\x11':
-			return KeyCtrlQ
-		case '\x12':
-			return KeyCtrlR
-		case '\x13':
-			return KeyCtrlS
-		case '\x14':
-			return KeyCtrlT
-		case '\x15':
-			return KeyCtrlU
-		case '\x16':
-			return KeyCtrlV
-		case '\x17':
-			return KeyCtrlW
-		case '\x18':
-			return KeyCtrlX
-		case '\x19':
-			return KeyCtrlY
-		case '\x1a':
-			return KeyCtrlZ
-		case '\x1b':
-			return KeyCtrlCloseBracket
-		case '\x1c':
-			return KeyCtrlBackslash
-		case '\x1f':
-			return KeyCtrlUnderscore
-		}
-
-		switch code {
-		case coninput.VK_OEM_4:
-			return KeyCtrlOpenBracket
-		}
-
-		return KeyRunes
-	}
+var vkCharMap = map[rune]KeyMsg{
+	'@':    {Mod: Ctrl, Runes: []rune{'@'}},
+	'\x01': {Mod: Ctrl, Runes: []rune{'a'}},
+	'\x02': {Mod: Ctrl, Runes: []rune{'b'}},
+	'\x03': {Mod: Ctrl, Runes: []rune{'c'}},
+	'\x04': {Mod: Ctrl, Runes: []rune{'d'}},
+	'\x05': {Mod: Ctrl, Runes: []rune{'e'}},
+	'\x06': {Mod: Ctrl, Runes: []rune{'f'}},
+	'\a':   {Mod: Ctrl, Runes: []rune{'g'}},
+	'\b':   {Mod: Ctrl, Runes: []rune{'h'}},
+	'\t':   {Mod: Ctrl, Runes: []rune{'i'}},
+	'\n':   {Mod: Ctrl, Runes: []rune{'j'}},
+	'\v':   {Mod: Ctrl, Runes: []rune{'k'}},
+	'\f':   {Mod: Ctrl, Runes: []rune{'l'}},
+	'\r':   {Mod: Ctrl, Runes: []rune{'m'}},
+	'\x0e': {Mod: Ctrl, Runes: []rune{'n'}},
+	'\x0f': {Mod: Ctrl, Runes: []rune{'o'}},
+	'\x10': {Mod: Ctrl, Runes: []rune{'p'}},
+	'\x11': {Mod: Ctrl, Runes: []rune{'q'}},
+	'\x12': {Mod: Ctrl, Runes: []rune{'r'}},
+	'\x13': {Mod: Ctrl, Runes: []rune{'s'}},
+	'\x14': {Mod: Ctrl, Runes: []rune{'t'}},
+	'\x15': {Mod: Ctrl, Runes: []rune{'u'}},
+	'\x16': {Mod: Ctrl, Runes: []rune{'v'}},
+	'\x17': {Mod: Ctrl, Runes: []rune{'w'}},
+	'\x18': {Mod: Ctrl, Runes: []rune{'x'}},
+	'\x19': {Mod: Ctrl, Runes: []rune{'y'}},
+	'\x1a': {Mod: Ctrl, Runes: []rune{'z'}},
+	'\x1b': {Mod: Ctrl, Runes: []rune{']'}},
+	'\x1c': {Mod: Ctrl, Runes: []rune{'\\'}},
+	'\x1f': {Mod: Ctrl, Runes: []rune{'_'}},
 }

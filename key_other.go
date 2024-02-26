@@ -9,5 +9,5 @@ import (
 )
 
 func readInputs(ctx context.Context, msgs chan<- Msg, input io.Reader) error {
-	return readAnsiInput(ctx, msgs, input)
+	return readAnsiInputs(ctx, msgs, input)
 }

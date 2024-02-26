@@ -1,7 +1,7 @@
 github.com/aymanbagabas/go-osc52/v2 v2.0.1 h1:HwpRHbFMcZLEVr42D4p7XBqjyuxQH5SMiErDT4WkJ2k=
 github.com/aymanbagabas/go-osc52/v2 v2.0.1/go.mod h1:uYgXzlJ7ZpABp8OJ+exZzJJhRNQ2ASbcXHWsFqH8hp8=
-github.com/charmbracelet/x/exp/term v0.0.0-20240224162640-3d670a517d3e h1:pBfk4IXd/ZLTc95hFZ1azczbFANZJ0EMd8qu0MxXVqI=
-github.com/charmbracelet/x/exp/term v0.0.0-20240224162640-3d670a517d3e/go.mod h1:ZPy8qL+1IzKxGHoaeKbXTbCB5u/WGFelf/N6O+KGA+w=
+github.com/charmbracelet/x/exp/term v0.0.0-20240228150546-07338a215e99 h1:/SddgXkjT5dcPoURpqQOI8VzqV3IlZXNII8/fJWX5b4=
+github.com/charmbracelet/x/exp/term v0.0.0-20240228150546-07338a215e99/go.mod h1:ZPy8qL+1IzKxGHoaeKbXTbCB5u/WGFelf/N6O+KGA+w=
 github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f h1:Y/CXytFA4m6baUTXGLOoWe4PQhGxaX0KpnayAqC48p4=
 github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f/go.mod h1:vw97MGsxSvLiUE2X8qFplwetxpGLQrlU1Q9AUEIzCaM=
 github.com/lucasb-eyer/go-colorful v1.2.0 h1:1nnpGOrhyZZuNyfu1QjKiUICQ74+3FNCN69Aj6K7nkY=

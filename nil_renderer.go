@@ -2,6 +2,8 @@ package tea
 
 type nilRenderer struct{}
 
+var _ renderer = nilRenderer{}
+
 func (n nilRenderer) start()                     {}
 func (n nilRenderer) stop()                      {}
 func (n nilRenderer) kill()                      {}
@@ -22,3 +24,5 @@ func (n nilRenderer) disableBracketedPaste()     {}
 func (n nilRenderer) enableMouseSGRMode()        {}
 func (n nilRenderer) disableMouseSGRMode()       {}
 func (n nilRenderer) bracketedPasteActive() bool { return false }
+func (n nilRenderer) pushKitty(int)              {}
+func (n nilRenderer) requestKittyFlags()         {}

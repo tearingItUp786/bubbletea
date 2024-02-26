@@ -28,6 +28,7 @@ func (p *Program) restoreTerminalState() error {
 		p.renderer.disableBracketedPaste()
 		p.renderer.showCursor()
 		p.disableMouse()
+		p.renderer.pushKitty(0) // reset all kitty flags
 
 		if p.renderer.altScreen() {
 			p.renderer.exitAltScreen()
@@ -64,8 +65,8 @@ func (p *Program) initCancelReader() error {
 	return nil
 }
 
-func readAnsiInput(ctx context.Context, msgs chan<- Msg, input io.Reader) error {
-	drv := NewDriver(input, os.Getenv("TERM"), 0)
+func readAnsiInputs(ctx context.Context, msgs chan<- Msg, input io.Reader) error {
+	drv := newInputDriver(input, os.Getenv("TERM"), 0)
 	for {
 		select {
 		case <-ctx.Done():

@@ -164,6 +164,9 @@ type Program struct {
 	// fps is the frames per second we should set on the renderer, if
 	// applicable,
 	fps int
+
+	// kittyFlags is a bitmask of kitty terminal features that are enabled.
+	kittyFlags int
 }
 
 // Quit is a special command that tells the Bubble Tea program to exit.
@@ -360,6 +363,19 @@ func (p *Program) eventLoop(model Model, cmds chan Cmd) (Model, error) {
 			case disableBracketedPasteMsg:
 				p.renderer.disableBracketedPaste()
 
+			case KittyKeyboardMsg:
+				// Save the terminal Kitty keyboard flags.
+				p.kittyFlags = int(msg)
+
+			case requestKittyKeyboardFlagsMsg:
+				p.renderer.requestKittyFlags()
+
+			case enableKittyKeyboardMsg:
+				p.renderer.pushKitty(int(msg))
+
+			case disableKittyKeyboardMsg:
+				p.renderer.pushKitty(0)
+
 			case execMsg:
 				// NB: this blocks.
 				p.exec(msg.cmd, msg.fn)
@@ -505,6 +521,10 @@ func (p *Program) Run() (Model, error) {
 	} else if p.startupOptions&withMouseAllMotion != 0 {
 		p.renderer.enableMouseAllMotion()
 		p.renderer.enableMouseSGRMode()
+	}
+
+	if p.kittyFlags > 0 {
+		p.renderer.pushKitty(p.kittyFlags)
 	}
 
 	// Initialize the program.

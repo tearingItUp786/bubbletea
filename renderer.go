@@ -67,6 +67,13 @@ type renderer interface {
 	// bracketedPasteActive reports whether bracketed paste mode is
 	// currently enabled.
 	bracketedPasteActive() bool
+
+	// pushKitty sends a command to the terminal to enable kitty keyboard
+	// mode flags.
+	pushKitty(flags int)
+
+	// requestKittyFlags requests the current kitty keyboard mode flags.
+	requestKittyFlags()
 }
 
 // repaintMsg forces a full repaint.

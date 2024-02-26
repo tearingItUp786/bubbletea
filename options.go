@@ -5,6 +5,7 @@ import (
 	"io"
 	"sync/atomic"
 
+	"github.com/charmbracelet/x/exp/term/ansi/kitty"
 	"github.com/muesli/termenv"
 )
 
@@ -221,5 +222,32 @@ func WithFilter(filter func(Model, Msg) Msg) ProgramOption {
 func WithFPS(fps int) ProgramOption {
 	return func(p *Program) {
 		p.fps = fps
+	}
+}
+
+// Kitty keyboard flags.
+const (
+	KittyEventTypesFlag     = kitty.ReportEventTypes
+	KittyAlternateKeysFlag  = kitty.ReportAlternateKeys
+	KittyAllKeysFlag        = kitty.ReportAllKeys
+	KittyAssociatedKeysFlag = kitty.ReportAssociatedKeys
+)
+
+// WithKittyKeyboard enables kitty keyboard support. This will enable the
+// program to recognize and handle kitty keyboard sequences. This is useful
+// for terminals that support kitty keyboard sequences.
+//
+// This option can be combined with the following flags:
+//   - KittyEventTypesFlag
+//   - KittyAlternateKeysFlag
+//   - KittyAllKeysFlag
+//   - KittyAssociatedKeysFlag
+func WithKittyKeyboard(flags ...int) ProgramOption {
+	return func(p *Program) {
+		var f int
+		for _, flag := range flags {
+			f |= flag
+		}
+		p.kittyFlags = kitty.DisambiguateEscapeCodes | f
 	}
 }

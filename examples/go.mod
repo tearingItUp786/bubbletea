@@ -9,7 +9,7 @@ require (
 	github.com/charmbracelet/harmonica v0.2.0
 	github.com/charmbracelet/lipgloss v0.9.1
 	github.com/charmbracelet/x/exp/teatest v0.0.0-20230508155401-2bd6fa14c46a
-	github.com/charmbracelet/x/exp/term v0.0.0-20240224162640-3d670a517d3e
+	github.com/charmbracelet/x/exp/term v0.0.0-20240228150546-07338a215e99
 	github.com/fogleman/ease v0.0.0-20170301025033-8da417bf1776
 	github.com/lucasb-eyer/go-colorful v1.2.0
 	github.com/mattn/go-isatty v0.0.20

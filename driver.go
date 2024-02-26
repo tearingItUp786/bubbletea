@@ -105,11 +105,11 @@ type driver struct {
 	flags int
 }
 
-// NewDriver returns a new ANSI input driver.
+// newInputDriver returns a new ANSI input driver.
 // This driver uses ANSI control codes compatible with VT100/VT200 terminals,
 // and XTerm. It supports reading Terminfo databases to overwrite the default
 // key sequences.
-func NewDriver(r io.Reader, term string, flags int) *driver {
+func newInputDriver(r io.Reader, term string, flags int) *driver {
 	d := &driver{
 		rd:    bufio.NewReaderSize(r, 256),
 		flags: flags,
@@ -344,7 +344,7 @@ func (d *driver) parseCsi(i int, p []byte, alt bool) (int, Msg) {
 		for i, p := range params {
 			da1[i] = p[0]
 		}
-		return len(seq), PrimaryDeviceAttributesEvent(da1)
+		return len(seq), PrimaryDeviceAttrsMsg(da1)
 	case string(seq) == "\x1b[200~" || string(seq) == "\x1b[201~":
 		// bracketed-paste
 		return len(seq), parseBracketedPaste(seq, &d.paste)
@@ -424,11 +424,11 @@ func (d *driver) parseOsc(i int, p []byte, _ bool) (int, Msg) {
 	osc := ansi.OscSequence(seq)
 	switch osc.Identifier() {
 	case "10":
-		return len(seq), FgColorEvent{xParseColor(osc.Data())}
+		return len(seq), FgColorMsg{xParseColor(osc.Data())}
 	case "11":
-		return len(seq), BgColorEvent{xParseColor(osc.Data())}
+		return len(seq), BgColorMsg{xParseColor(osc.Data())}
 	case "12":
-		return len(seq), CursorColorEvent{xParseColor(osc.Data())}
+		return len(seq), CursorColorMsg{xParseColor(osc.Data())}
 	}
 
 	return len(seq), UnknownOscMsg{osc}

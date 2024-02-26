@@ -1,5 +1,7 @@
 package tea
 
+import "github.com/charmbracelet/x/exp/term/ansi/kitty"
+
 // WindowSizeMsg is used to report the terminal size. It's sent to Update once
 // initially and then on every terminal resize. Note that Windows does not
 // have support for reporting when resizes occur as it does not support the
@@ -143,6 +145,37 @@ func DisableBracketedPaste() Msg {
 // bracketed paste should be disabled. You can send an
 // disableBracketedPasteMsg with DisableBracketedPaste.
 type disableBracketedPasteMsg struct{}
+
+type requestKittyKeyboardFlagsMsg struct{}
+
+// RequestKittyKeyboardFlags is a special command that tells the Bubble Tea program to
+// request the current kitty keyboard flags.
+// The flags will be sent to the program as a KittyKeyboardMsg.
+func RequestKittyKeyboardFlags() Msg {
+	return requestKittyKeyboardFlagsMsg{}
+}
+
+type enableKittyKeyboardMsg int
+
+// EnableKittyKeyboard is a special command that tells the Bubble
+// Tea program to enable kitty keyboard disambiguation.
+func EnableKittyKeyboard(flags ...int) Cmd {
+	return func() Msg {
+		f := kitty.DisambiguateEscapeCodes
+		for _, flag := range flags {
+			f |= flag
+		}
+		return enableKittyKeyboardMsg(f)
+	}
+}
+
+type disableKittyKeyboardMsg struct{}
+
+// DisableKittyKeyboard is a special command that tells the Bubble
+// Tea program to disable kitty keyboard disambiguation.
+func DisableKittyKeyboard() Msg {
+	return disableKittyKeyboardMsg{}
+}
 
 // EnterAltScreen enters the alternate screen buffer, which consumes the entire
 // terminal window. ExitAltScreen will return the terminal to its former state.
