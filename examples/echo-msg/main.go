@@ -37,7 +37,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			case "b":
 				execute(sys.RequestBackgroundColor)
 			case "k":
-				cmd = tea.RequestKittyFlags
+				cmd = tea.RequestKittyKeyboardFlags
 			}
 		case "k":
 			switch msg.String() {
