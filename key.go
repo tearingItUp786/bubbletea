@@ -194,7 +194,10 @@ type KeyMsg struct {
 	AltRunes []rune
 	Sym      KeySym
 	Action   KeyAction
-	Mod      Mod
+	Mod
+
+	// Paste is true if the event is part of bracketed-paste.
+	Paste bool
 }
 
 // Rune returns the first rune of the event.

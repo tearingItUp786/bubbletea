@@ -61,6 +61,7 @@ func (e KittyKeyboardMsg) String() string {
 
 // Kitty Clipboard Control Sequences
 var kittyKeyMap = map[int]KeySym{
+	ansi.BS:  KeyBackspace,
 	ansi.HT:  KeyTab,
 	ansi.CR:  KeyEnter,
 	ansi.ESC: KeyEscape,

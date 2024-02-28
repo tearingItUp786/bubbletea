@@ -30,7 +30,7 @@ func (d *driver) registerKeys(flags int) {
 		esc = KeyMsg{Runes: []rune{'['}, Mod: Ctrl} // ctrl+[ or escape
 	}
 
-	sp := KeyMsg{Sym: KeySpace}
+	sp := KeyMsg{Sym: KeySpace, Runes: []rune{' '}}
 	if flags&FlagSpace != 0 {
 		sp = KeyMsg{Runes: []rune{' '}}
 	}
@@ -181,6 +181,27 @@ func (d *driver) registerKeys(flags int) {
 		"\x1b[34~": {Sym: KeyF20},
 	}
 
+	// XTerm modifiers
+	// These are offset by 1 to be compatible with our Mod type.
+	// See https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h3-PC-Style-Function-Keys
+	modifiers := []Mod{
+		Shift,                     // 1
+		Alt,                       // 2
+		Shift | Alt,               // 3
+		Ctrl,                      // 4
+		Shift | Ctrl,              // 5
+		Alt | Ctrl,                // 6
+		Shift | Alt | Ctrl,        // 7
+		Meta,                      // 8
+		Meta | Shift,              // 9
+		Meta | Alt,                // 10
+		Meta | Shift | Alt,        // 11
+		Meta | Ctrl,               // 12
+		Meta | Shift | Ctrl,       // 13
+		Meta | Alt | Ctrl,         // 14
+		Meta | Shift | Alt | Ctrl, // 15
+	}
+
 	// CSI function keys
 	csiFuncKeys := map[string]KeyMsg{
 		"A": {Sym: KeyUp}, "B": {Sym: KeyDown},
@@ -189,6 +210,22 @@ func (d *driver) registerKeys(flags int) {
 		"H": {Sym: KeyHome}, "P": {Sym: KeyF1},
 		"Q": {Sym: KeyF2}, "R": {Sym: KeyF3},
 		"S": {Sym: KeyF4},
+	}
+
+	// SS3 keypad function keys
+	ss3FuncKeys := map[string]KeyMsg{
+		// These are defined in XTerm
+		// Taken from Foot keymap.h and XTerm modifyOtherKeys
+		// https://codeberg.org/dnkl/foot/src/branch/master/keymap.h
+		"M": {Sym: KeyKpEnter}, "X": {Sym: KeyKpEqual},
+		"j": {Sym: KeyKpMul}, "k": {Sym: KeyKpPlus},
+		"l": {Sym: KeyKpComma}, "m": {Sym: KeyKpMinus},
+		"n": {Sym: KeyKpPeriod}, "o": {Sym: KeyKpDiv},
+		"p": {Sym: KeyKp0}, "q": {Sym: KeyKp1},
+		"r": {Sym: KeyKp2}, "s": {Sym: KeyKp3},
+		"t": {Sym: KeyKp4}, "u": {Sym: KeyKp5},
+		"v": {Sym: KeyKp6}, "w": {Sym: KeyKp7},
+		"x": {Sym: KeyKp8}, "y": {Sym: KeyKp9},
 	}
 
 	// CSI ~ sequence keys
@@ -211,26 +248,7 @@ func (d *driver) registerKeys(flags int) {
 	}
 
 	if flags&FlagNoXTerm == 0 {
-		// XTerm modifiers
-		// These are offset by 1 to be compatible with our Mod type.
-		// See https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h3-PC-Style-Function-Keys
-		for _, m := range []Mod{
-			Shift,                     // 1
-			Alt,                       // 2
-			Shift | Alt,               // 3
-			Ctrl,                      // 4
-			Shift | Ctrl,              // 5
-			Alt | Ctrl,                // 6
-			Shift | Alt | Ctrl,        // 7
-			Meta,                      // 8
-			Meta | Shift,              // 9
-			Meta | Alt,                // 10
-			Meta | Shift | Alt,        // 11
-			Meta | Ctrl,               // 12
-			Meta | Shift | Ctrl,       // 13
-			Meta | Alt | Ctrl,         // 14
-			Meta | Shift | Alt | Ctrl, // 15
-		} {
+		for _, m := range modifiers {
 			// XTerm modifier offset +1
 			xtermMod := strconv.Itoa(int(m) + 1)
 
@@ -242,9 +260,24 @@ func (d *driver) registerKeys(flags int) {
 				key.Mod = m
 				d.table[seq] = key
 			}
+			// SS3 <modifier> <func>
+			for k, v := range ss3FuncKeys {
+				seq := "\x1bO" + xtermMod + k
+				key := v
+				key.Mod = m
+				d.table[seq] = key
+			}
 			//  CSI <number> ; <modifier> ~
 			for k, v := range csiTildeKeys {
 				seq := "\x1b[" + k + ";" + xtermMod + "~"
+				key := v
+				key.Mod = m
+				d.table[seq] = key
+			}
+			// CSI 27 ; <modifier> ; <code> ~
+			for k, v := range modifyOtherKeys {
+				code := strconv.Itoa(k)
+				seq := "\x1b[27;" + xtermMod + ";" + code + "~"
 				key := v
 				key.Mod = m
 				d.table[seq] = key

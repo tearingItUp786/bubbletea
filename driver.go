@@ -365,6 +365,9 @@ func (d *driver) parseCsi(i int, p []byte, alt bool) (int, Msg) {
 	case initial == '?' && cmd == 'u' && len(params) > 0:
 		// Kitty keyboard flags
 		return len(seq), KittyKeyboardMsg(params[0][0])
+	case initial == 0 && cmd == '~':
+		// XTerm modifyOtherKeys 2
+		return len(seq), parseXTermModifyOtherKeys(seq)
 	case initial == '?' && cmd == 'c':
 		// Primary Device Attributes
 		da1 := make([]uint, len(params))
