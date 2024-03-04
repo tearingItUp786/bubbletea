@@ -8,9 +8,12 @@ import (
 	"sync"
 	"time"
 
+	"github.com/charmbracelet/x/exp/term/ansi/cursor"
+	"github.com/charmbracelet/x/exp/term/ansi/mode"
+	"github.com/charmbracelet/x/exp/term/ansi/screen"
+	"github.com/charmbracelet/x/exp/term/ansi/sys"
 	"github.com/muesli/ansi/compressor"
 	"github.com/muesli/reflow/truncate"
-	"github.com/muesli/termenv"
 )
 
 const (
@@ -20,6 +23,14 @@ const (
 	maxFPS     = 120
 )
 
+var (
+	clearLineSeq   = screen.EraseLine(2)
+	clearScreenSeq = screen.EraseDisplay(2)
+	moveCursorSeq  = cursor.Move(1, 1)
+	cursorUpSeq    = cursor.Up(1)
+	cursorDownSeq  = cursor.Down(1)
+)
+
 // standardRenderer is a framerate-based terminal renderer, updating the view
 // at a given framerate to avoid overloading the terminal emulator.
 //
@@ -27,7 +38,7 @@ const (
 // to exclude ranges of lines, allowing them to be written to directly.
 type standardRenderer struct {
 	mtx *sync.Mutex
-	out *termenv.Output
+	out io.Writer
 
 	buf                bytes.Buffer
 	queuedMessageLines []string
@@ -58,7 +69,7 @@ type standardRenderer struct {
 
 // newRenderer creates a new renderer. Normally you'll want to initialize it
 // with os.Stdout as the first argument.
-func newRenderer(out *termenv.Output, useANSICompressor bool, fps int) renderer {
+func newRenderer(out io.Writer, useANSICompressor bool, fps int) renderer {
 	if fps < 1 {
 		fps = defaultFPS
 	} else if fps > maxFPS {
@@ -73,7 +84,7 @@ func newRenderer(out *termenv.Output, useANSICompressor bool, fps int) renderer 
 		queuedMessageLines: []string{},
 	}
 	if r.useANSICompressor {
-		r.out = termenv.NewOutput(&compressor.Writer{Forward: out})
+		r.out = &compressor.Writer{Forward: out}
 	}
 	return r
 }
@@ -108,13 +119,18 @@ func (r *standardRenderer) stop() {
 	r.mtx.Lock()
 	defer r.mtx.Unlock()
 
-	r.out.ClearLine()
+	r.execute(clearLineSeq)
 
 	if r.useANSICompressor {
-		if w, ok := r.out.TTY().(io.WriteCloser); ok {
+		if w, ok := r.out.(io.WriteCloser); ok {
 			_ = w.Close()
 		}
 	}
+}
+
+// execute writes a sequence to the terminal.
+func (r *standardRenderer) execute(seq string) {
+	_, _ = io.WriteString(r.out, seq)
 }
 
 // kill halts the renderer. The final frame will not be rendered.
@@ -127,7 +143,7 @@ func (r *standardRenderer) kill() {
 	r.mtx.Lock()
 	defer r.mtx.Unlock()
 
-	r.out.ClearLine()
+	r.execute(clearLineSeq)
 }
 
 // listen waits for ticks on the ticker, or a signal to stop the renderer.
@@ -156,7 +172,6 @@ func (r *standardRenderer) flush() {
 
 	// Output buffer
 	buf := &bytes.Buffer{}
-	out := termenv.NewOutput(buf)
 
 	newLines := strings.Split(r.buf.String(), "\n")
 
@@ -180,17 +195,17 @@ func (r *standardRenderer) flush() {
 			// printing messages allows for native terminal word-wrap, we
 			// don't have control over the queued lines
 			if flushQueuedMessages {
-				out.ClearLine()
+				buf.WriteString(clearLineSeq)
 			} else if (len(newLines) <= len(oldLines)) && (len(newLines) > i && len(oldLines) > i) && (newLines[i] == oldLines[i]) {
 				// If the number of lines we want to render hasn't increased and
 				// new line is the same as the old line we can skip rendering for
 				// this line as a performance optimization.
 				skipLines[i] = struct{}{}
 			} else if _, exists := r.ignoreLines[i]; !exists {
-				out.ClearLine()
+				buf.WriteString(clearLineSeq)
 			}
 
-			out.CursorUp(1)
+			buf.WriteString(cursorUpSeq)
 		}
 
 		if _, exists := r.ignoreLines[0]; !exists {
@@ -203,8 +218,8 @@ func (r *standardRenderer) flush() {
 			// standard (whereas others are proprietary to, say, VT100/VT52).
 			// If cursor previous line (ESC[ + <n> + F) were better supported
 			// we could use that above to eliminate this step.
-			out.CursorBack(r.width)
-			out.ClearLine()
+			buf.WriteString(cursor.Left(r.width))
+			buf.WriteString(clearLineSeq)
 		}
 	}
 
@@ -217,8 +232,8 @@ func (r *standardRenderer) flush() {
 	if flushQueuedMessages {
 		// Dump the lines we've queued up for printing
 		for _, line := range r.queuedMessageLines {
-			_, _ = out.WriteString(line)
-			_, _ = out.WriteString("\r\n")
+			_, _ = buf.WriteString(line)
+			_, _ = buf.WriteString("\r\n")
 		}
 		// clear the queued message lines
 		r.queuedMessageLines = []string{}
@@ -229,7 +244,7 @@ func (r *standardRenderer) flush() {
 		if _, skip := skipLines[i]; skip {
 			// Unless this is the last line, move the cursor down.
 			if i < len(newLines)-1 {
-				out.CursorDown(1)
+				buf.WriteString(cursorDownSeq)
 			}
 		} else {
 			line := newLines[i]
@@ -245,10 +260,10 @@ func (r *standardRenderer) flush() {
 				line = truncate.String(line, uint(r.width))
 			}
 
-			_, _ = out.WriteString(line)
+			_, _ = buf.WriteString(line)
 
 			if i < len(newLines)-1 {
-				_, _ = out.WriteString("\r\n")
+				_, _ = buf.WriteString("\r\n")
 			}
 		}
 	}
@@ -260,9 +275,9 @@ func (r *standardRenderer) flush() {
 		// This case fixes a bug in macOS terminal. In other terminals the
 		// other case seems to do the job regardless of whether or not we're
 		// using the full terminal window.
-		out.MoveCursor(r.linesRendered, 0)
+		buf.WriteString(cursor.Move(r.linesRendered, 0))
 	} else {
-		out.CursorBack(r.width)
+		buf.WriteString(cursor.Left(r.width))
 	}
 
 	_, _ = r.out.Write(buf.Bytes())
@@ -296,8 +311,8 @@ func (r *standardRenderer) clearScreen() {
 	r.mtx.Lock()
 	defer r.mtx.Unlock()
 
-	r.out.ClearScreen()
-	r.out.MoveCursor(1, 1)
+	r.execute(clearScreenSeq)
+	r.execute(moveCursorSeq)
 
 	r.repaint()
 }
@@ -318,7 +333,7 @@ func (r *standardRenderer) enterAltScreen() {
 	}
 
 	r.altScreenActive = true
-	r.out.AltScreen()
+	r.execute(mode.EnableAltScreenBuffer)
 
 	// Ensure that the terminal is cleared, even when it doesn't support
 	// alt screen (or alt screen support is disabled, like GNU screen by
@@ -326,16 +341,16 @@ func (r *standardRenderer) enterAltScreen() {
 	//
 	// Note: we can't use r.clearScreen() here because the mutex is already
 	// locked.
-	r.out.ClearScreen()
-	r.out.MoveCursor(1, 1)
+	r.execute(clearScreenSeq)
+	r.execute(moveCursorSeq)
 
 	// cmd.exe and other terminals keep separate cursor states for the AltScreen
 	// and the main buffer. We have to explicitly reset the cursor visibility
 	// whenever we enter AltScreen.
 	if r.cursorHidden {
-		r.out.HideCursor()
+		r.execute(mode.HideCursor)
 	} else {
-		r.out.ShowCursor()
+		r.execute(mode.ShowCursor)
 	}
 
 	r.repaint()
@@ -350,15 +365,15 @@ func (r *standardRenderer) exitAltScreen() {
 	}
 
 	r.altScreenActive = false
-	r.out.ExitAltScreen()
+	r.execute(mode.DisableAltScreenBuffer)
 
 	// cmd.exe and other terminals keep separate cursor states for the AltScreen
 	// and the main buffer. We have to explicitly reset the cursor visibility
 	// whenever we exit AltScreen.
 	if r.cursorHidden {
-		r.out.HideCursor()
+		r.execute(mode.HideCursor)
 	} else {
-		r.out.ShowCursor()
+		r.execute(mode.ShowCursor)
 	}
 
 	r.repaint()
@@ -369,7 +384,7 @@ func (r *standardRenderer) showCursor() {
 	defer r.mtx.Unlock()
 
 	r.cursorHidden = false
-	r.out.ShowCursor()
+	r.execute(mode.ShowCursor)
 }
 
 func (r *standardRenderer) hideCursor() {
@@ -377,56 +392,56 @@ func (r *standardRenderer) hideCursor() {
 	defer r.mtx.Unlock()
 
 	r.cursorHidden = true
-	r.out.HideCursor()
+	r.execute(mode.HideCursor)
 }
 
 func (r *standardRenderer) enableMouseCellMotion() {
 	r.mtx.Lock()
 	defer r.mtx.Unlock()
 
-	r.out.EnableMouseCellMotion()
+	r.execute(mode.EnableCellMotionMouseTracking)
 }
 
 func (r *standardRenderer) disableMouseCellMotion() {
 	r.mtx.Lock()
 	defer r.mtx.Unlock()
 
-	r.out.DisableMouseCellMotion()
+	r.execute(mode.DisableCellMotionMouseTracking)
 }
 
 func (r *standardRenderer) enableMouseAllMotion() {
 	r.mtx.Lock()
 	defer r.mtx.Unlock()
 
-	r.out.EnableMouseAllMotion()
+	r.execute(mode.EnableAllMouseTracking)
 }
 
 func (r *standardRenderer) disableMouseAllMotion() {
 	r.mtx.Lock()
 	defer r.mtx.Unlock()
 
-	r.out.DisableMouseAllMotion()
+	r.execute(mode.DisableAllMouseTracking)
 }
 
 func (r *standardRenderer) enableMouseSGRMode() {
 	r.mtx.Lock()
 	defer r.mtx.Unlock()
 
-	r.out.EnableMouseExtendedMode()
+	r.execute(mode.EnableSgrMouseExt)
 }
 
 func (r *standardRenderer) disableMouseSGRMode() {
 	r.mtx.Lock()
 	defer r.mtx.Unlock()
 
-	r.out.DisableMouseExtendedMode()
+	r.execute(mode.DisableSgrMouseExt)
 }
 
 func (r *standardRenderer) enableBracketedPaste() {
 	r.mtx.Lock()
 	defer r.mtx.Unlock()
 
-	r.out.EnableBracketedPaste()
+	r.execute(mode.EnableBracketedPaste)
 	r.bpActive = true
 }
 
@@ -434,7 +449,7 @@ func (r *standardRenderer) disableBracketedPaste() {
 	r.mtx.Lock()
 	defer r.mtx.Unlock()
 
-	r.out.DisableBracketedPaste()
+	r.execute(mode.DisableBracketedPaste)
 	r.bpActive = false
 }
 
@@ -443,6 +458,11 @@ func (r *standardRenderer) bracketedPasteActive() bool {
 	defer r.mtx.Unlock()
 
 	return r.bpActive
+}
+
+// setWindowTitle sets the terminal window title.
+func (r *standardRenderer) setWindowTitle(title string) {
+	r.execute(sys.SetWindowTitle(title))
 }
 
 // setIgnoredLines specifies lines not to be touched by the standard Bubble Tea
@@ -465,15 +485,14 @@ func (r *standardRenderer) setIgnoredLines(from int, to int) {
 	// Erase ignored lines
 	if r.linesRendered > 0 {
 		buf := &bytes.Buffer{}
-		out := termenv.NewOutput(buf)
 
 		for i := r.linesRendered - 1; i >= 0; i-- {
 			if _, exists := r.ignoreLines[i]; exists {
-				out.ClearLine()
+				buf.WriteString(clearLineSeq)
 			}
-			out.CursorUp(1)
+			buf.WriteString(cursorUpSeq)
 		}
-		out.MoveCursor(r.linesRendered, 0) // put cursor back
+		buf.WriteString(cursor.Move(r.linesRendered, 0)) // put cursor back
 		_, _ = r.out.Write(buf.Bytes())
 	}
 }
@@ -508,16 +527,15 @@ func (r *standardRenderer) insertTop(lines []string, topBoundary, bottomBoundary
 	defer r.mtx.Unlock()
 
 	buf := &bytes.Buffer{}
-	out := termenv.NewOutput(buf)
 
-	out.ChangeScrollingRegion(topBoundary, bottomBoundary)
-	out.MoveCursor(topBoundary, 0)
-	out.InsertLines(len(lines))
-	_, _ = out.WriteString(strings.Join(lines, "\r\n"))
-	out.ChangeScrollingRegion(0, r.height)
+	buf.WriteString(screen.SetScrollingRegion(topBoundary, bottomBoundary))
+	buf.WriteString(cursor.Move(topBoundary, 0))
+	buf.WriteString(screen.InsertLine(len(lines)))
+	_, _ = buf.WriteString(strings.Join(lines, "\r\n"))
+	buf.WriteString(screen.SetScrollingRegion(0, r.height))
 
 	// Move cursor back to where the main rendering routine expects it to be
-	out.MoveCursor(r.linesRendered, 0)
+	buf.WriteString(cursor.Move(r.linesRendered, 0))
 
 	_, _ = r.out.Write(buf.Bytes())
 }
@@ -536,15 +554,14 @@ func (r *standardRenderer) insertBottom(lines []string, topBoundary, bottomBound
 	defer r.mtx.Unlock()
 
 	buf := &bytes.Buffer{}
-	out := termenv.NewOutput(buf)
 
-	out.ChangeScrollingRegion(topBoundary, bottomBoundary)
-	out.MoveCursor(bottomBoundary, 0)
-	_, _ = out.WriteString("\r\n" + strings.Join(lines, "\r\n"))
-	out.ChangeScrollingRegion(0, r.height)
+	buf.WriteString(screen.SetScrollingRegion(topBoundary, bottomBoundary))
+	buf.WriteString(cursor.Move(bottomBoundary, 0))
+	_, _ = buf.WriteString("\r\n" + strings.Join(lines, "\r\n"))
+	buf.WriteString(screen.SetScrollingRegion(0, r.height))
 
 	// Move cursor back to where the main rendering routine expects it to be
-	out.MoveCursor(r.linesRendered, 0)
+	buf.WriteString(cursor.Move(r.linesRendered, 0))
 
 	_, _ = r.out.Write(buf.Bytes())
 }
