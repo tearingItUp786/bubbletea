@@ -1,3 +1,5 @@
+github.com/charmbracelet/bubbles v0.18.1-0.20240305184557-e3823b2f2259 h1:EzJicOZFDOQ22DE3E8Nbj+7w4Y1j63Jevs0IFjnHvbc=
+github.com/charmbracelet/bubbles v0.18.1-0.20240305184557-e3823b2f2259/go.mod h1:Zlzkn8WOd6QS7RC1BXAY1iw1VLq+xT70UZ1vkEtnrvo=
 github.com/charmbracelet/x/exp/term v0.0.0-20240304203044-e4990523a94f h1:QBYHw9qrtdlgNtItSW4zQe1j53yR0FZzwH3kYE8p3fE=
 github.com/charmbracelet/x/exp/term v0.0.0-20240304203044-e4990523a94f/go.mod h1:OZzXGbJjLKyLwUBF2DXVZkfdTLsBPCaVr4mbjzgJHt8=
 github.com/charmbracelet/x/exp/term v0.0.0-20240305151727-f073f70d1f93 h1:t/2F+5N//3NhGWFnmpphgvKuEcqQXV4DlETpyELA0zc=
@@ -21,6 +23,7 @@ github.com/rivo/uniseg v0.1.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJ
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rivo/uniseg v0.4.6 h1:Sovz9sDSwbOz9tgUy8JpT+KgCkPYJEN/oYzlJiYTNLg=
 github.com/rivo/uniseg v0.4.6/go.mod h1:FN3SvrM+Zdj16jyLfmOkMNblXMcoc8DfTHruCPUcx88=
+github.com/rivo/uniseg v0.4.7/go.mod h1:FN3SvrM+Zdj16jyLfmOkMNblXMcoc8DfTHruCPUcx88=
 github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e h1:JVG44RsyaB9T2KIHavMF/ppJZNG9ZpyihvCd0w101no=
 github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e/go.mod h1:RbqR21r5mrJuqunuUZ/Dhy/avygyECGrLceyNeo4LiM=
 golang.org/x/exp v0.0.0-20220909182711-5c715a9e8561 h1:MDc5xs78ZrZr3HMQugiXOAkSZtfTpbJLDr/lwfgO53E=

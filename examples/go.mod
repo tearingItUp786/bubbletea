@@ -2,14 +2,12 @@ module examples
 
 go 1.18
 
-replace github.com/charmbracelet/bubbles => ../../bubbles
-
 require (
-	github.com/charmbracelet/bubbles v0.18.0
+	github.com/charmbracelet/bubbles v0.18.1-0.20240305184557-e3823b2f2259
 	github.com/charmbracelet/bubbletea v0.25.0
 	github.com/charmbracelet/glamour v0.6.0
 	github.com/charmbracelet/harmonica v0.2.0
-	github.com/charmbracelet/lipgloss v0.9.1
+	github.com/charmbracelet/lipgloss v0.10.0
 	github.com/charmbracelet/x/exp/teatest v0.0.0-20240229115032-4b79243a3516
 	github.com/charmbracelet/x/exp/term v0.0.0-20240305175158-9d6e16c3e596
 	github.com/fogleman/ease v0.0.0-20170301025033-8da417bf1776
