@@ -70,6 +70,9 @@ type renderer interface {
 
 	// setWindowTitle sets the terminal window title.
 	setWindowTitle(string)
+
+	// requestBackgroundColor requests the background color from the terminal.
+	requestBackgroundColor()
 }
 
 // repaintMsg forces a full repaint.

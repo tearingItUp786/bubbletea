@@ -359,6 +359,9 @@ func (p *Program) eventLoop(model Model, cmds chan Cmd) (Model, error) {
 			case disableBracketedPasteMsg:
 				p.renderer.disableBracketedPaste()
 
+			case requestBackgroundColorMsg:
+				p.renderer.requestBackgroundColor()
+
 			case execMsg:
 				// NB: this blocks.
 				p.exec(msg.cmd, msg.fn)
@@ -534,6 +537,9 @@ func (p *Program) Run() (Model, error) {
 			return model, err
 		}
 	}
+
+	// Query the terminal for its background color.
+	p.renderer.requestBackgroundColor()
 
 	// Handle resize events.
 	handlers.add(p.handleResize())

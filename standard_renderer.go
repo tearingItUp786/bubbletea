@@ -465,6 +465,11 @@ func (r *standardRenderer) setWindowTitle(title string) {
 	r.execute(sys.SetWindowTitle(title))
 }
 
+// requestBackgroundColor requests the background color from the terminal.
+func (r *standardRenderer) requestBackgroundColor() {
+	r.execute(sys.RequestBackgroundColor)
+}
+
 // setIgnoredLines specifies lines not to be touched by the standard Bubble Tea
 // renderer.
 func (r *standardRenderer) setIgnoredLines(from int, to int) {
