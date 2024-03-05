@@ -18,7 +18,7 @@ type model struct {
 }
 
 func (m model) Init() tea.Cmd {
-	return nil
+	return tea.EnableEnhancedKeyboard
 }
 
 func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {

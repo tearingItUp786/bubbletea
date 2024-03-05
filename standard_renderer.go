@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/charmbracelet/x/exp/term/ansi/cursor"
+	"github.com/charmbracelet/x/exp/term/ansi/kitty"
 	"github.com/charmbracelet/x/exp/term/ansi/mode"
 	"github.com/charmbracelet/x/exp/term/ansi/screen"
 	"github.com/charmbracelet/x/exp/term/ansi/sys"
@@ -468,6 +469,22 @@ func (r *standardRenderer) setWindowTitle(title string) {
 // requestBackgroundColor requests the background color from the terminal.
 func (r *standardRenderer) requestBackgroundColor() {
 	r.execute(sys.RequestBackgroundColor)
+}
+
+// enableKeyboardEnhancement enables keyboard enhancement mode.
+func (r *standardRenderer) enableKeyboardEnhancement() {
+	// We only enable
+	//  - DisambiguateEscapeCodes
+	//  - ReportAllKeys
+	//
+	// Do we need to support the other modes?
+	// https://sw.kovidgoyal.net/kitty/keyboard-protocol/#progressive-enhancement
+	r.execute(kitty.Push(kitty.DisambiguateEscapeCodes | kitty.ReportAllKeys))
+}
+
+// disableKeyboardEnhancement disables keyboard enhancement mode.
+func (r *standardRenderer) disableKeyboardEnhancement() {
+	r.execute(kitty.Push(0))
 }
 
 // setIgnoredLines specifies lines not to be touched by the standard Bubble Tea

@@ -73,6 +73,12 @@ type renderer interface {
 
 	// requestBackgroundColor requests the background color from the terminal.
 	requestBackgroundColor()
+
+	// enableKeyboardEnhancement enables keyboard enhancement mode.
+	enableKeyboardEnhancement()
+
+	// disableKeyboardEnhancement disables keyboard enhancement mode.
+	disableKeyboardEnhancement()
 }
 
 // repaintMsg forces a full repaint.

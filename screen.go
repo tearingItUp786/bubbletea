@@ -160,6 +160,36 @@ func RequestBackgroundColor() Msg {
 // RequestBackgroundColor.
 type requestBackgroundColorMsg struct{}
 
+// EnableEnhancedKeyboard is a special command that enables keyboard
+// enhancement mode. This mode enables the Kitty Keyboard protocol, which
+// provides more accurate keyboard input. This protocol is *not)( supported
+// by all terminals.
+//
+// https://sw.kovidgoyal.net/kitty/keyboard-protocol
+func EnableEnhancedKeyboard() Msg {
+	return enableEnhancedKeyboardMsg{}
+}
+
+// enableEnhancedKeyboardMsg is an internal message that enables keyboard
+// enhancement mode. You can send an enableEnhancedKeyboardMsg with
+// EnableKeyboardEnhancement.
+type enableEnhancedKeyboardMsg struct{}
+
+// DisableEnhancedKeyboard is a special command that disables keyboard
+// enhancement mode. This command should be used to disable the keyboard
+// enhancement mode while the program is running.
+//
+// Note that the keyboard enhancement mode will be automatically disabled when
+// the program quits.
+func DisableEnhancedKeyboard() Msg {
+	return disableEnhancedKeyboardMsg{}
+}
+
+// disableEnhancedKeyboardMsg is an internal message that disables keyboard
+// enhancement mode. You can send a disableEnhancedKeyboardMsg with
+// DisableKeyboardEnhancement.
+type disableEnhancedKeyboardMsg struct{}
+
 // EnterAltScreen enters the alternate screen buffer, which consumes the entire
 // terminal window. ExitAltScreen will return the terminal to its former state.
 //

@@ -362,6 +362,12 @@ func (p *Program) eventLoop(model Model, cmds chan Cmd) (Model, error) {
 			case requestBackgroundColorMsg:
 				p.renderer.requestBackgroundColor()
 
+			case enableEnhancedKeyboardMsg:
+				p.renderer.enableKeyboardEnhancement()
+
+			case disableEnhancedKeyboardMsg:
+				p.renderer.disableKeyboardEnhancement()
+
 			case execMsg:
 				// NB: this blocks.
 				p.exec(msg.cmd, msg.fn)

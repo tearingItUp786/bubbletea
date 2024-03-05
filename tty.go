@@ -28,6 +28,7 @@ func (p *Program) restoreTerminalState() error {
 	if p.renderer != nil {
 		p.renderer.disableBracketedPaste()
 		p.renderer.showCursor()
+		p.renderer.disableKeyboardEnhancement() // kitty keyboard protocol
 		p.disableMouse()
 
 		if p.renderer.altScreen() {
