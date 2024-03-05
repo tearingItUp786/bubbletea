@@ -1,11 +1,14 @@
 package tea
 
 import (
+	"context"
 	"errors"
 	"fmt"
 	"io"
+	"os"
 	"time"
 
+	"github.com/charmbracelet/x/exp/term/input"
 	"github.com/muesli/cancelreader"
 	"golang.org/x/term"
 )
@@ -53,24 +56,52 @@ func (p *Program) restoreInput() error {
 	return nil
 }
 
-// initCancelReader (re)commences reading inputs.
-func (p *Program) initCancelReader() error {
-	var err error
-	p.cancelReader, err = newInputReader(p.input)
+// initInputReader (re)commences reading inputs.
+func (p *Program) initInputReader() error {
+	// Initialize the input reader.
+	// This need to be done after the terminal has been initialized and set to
+	// raw mode.
+	// On Windows, this will change the console mode to enable mouse and window
+	// events.
+	drv, err := input.NewDriver(p.input, os.Getenv("TERM"), 0)
 	if err != nil {
-		return fmt.Errorf("error creating cancelreader: %w", err)
+		return err
 	}
 
+	p.inputReader = drv
 	p.readLoopDone = make(chan struct{})
 	go p.readLoop()
 
 	return nil
 }
 
+func readInputs(ctx context.Context, msgs chan<- Msg, reader *input.Driver) error {
+	var readEvents [16]input.Event
+	for {
+		n, err := reader.ReadInput(readEvents[:])
+		if err != nil {
+			return err
+		}
+
+		events := readEvents[:n]
+		for _, e := range events {
+			select {
+			case msgs <- e:
+			case <-ctx.Done():
+				err := ctx.Err()
+				if err != nil {
+					err = fmt.Errorf("found context error while reading input: %w", err)
+				}
+				return err
+			}
+		}
+	}
+}
+
 func (p *Program) readLoop() {
 	defer close(p.readLoopDone)
 
-	err := readInputs(p.ctx, p.msgs, p.cancelReader)
+	err := readInputs(p.ctx, p.msgs, p.inputReader)
 	if !errors.Is(err, io.EOF) && !errors.Is(err, cancelreader.ErrCanceled) {
 		select {
 		case <-p.ctx.Done():

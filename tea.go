@@ -21,7 +21,7 @@ import (
 	"sync/atomic"
 	"syscall"
 
-	"github.com/muesli/cancelreader"
+	"github.com/charmbracelet/x/exp/term/input"
 	"golang.org/x/sync/errgroup"
 	"golang.org/x/term"
 )
@@ -152,8 +152,10 @@ type Program struct {
 	// ttyInput is null if input is not a TTY.
 	ttyInput              *os.File
 	previousTtyInputState *term.State
-	cancelReader          cancelreader.CancelReader
 	readLoopDone          chan struct{}
+
+	// input look driver
+	inputReader *input.Driver
 
 	// was the altscreen active before releasing the terminal?
 	altScreenWasActive bool
@@ -528,7 +530,7 @@ func (p *Program) Run() (Model, error) {
 
 	// Subscribe to user input.
 	if p.input != nil {
-		if err := p.initCancelReader(); err != nil {
+		if err := p.initInputReader(); err != nil {
 			return model, err
 		}
 	}
@@ -553,12 +555,12 @@ func (p *Program) Run() (Model, error) {
 	p.cancel()
 
 	// Check if the cancel reader has been setup before waiting and closing.
-	if p.cancelReader != nil {
+	if p.inputReader != nil {
 		// Wait for input loop to finish.
-		if p.cancelReader.Cancel() {
+		if p.inputReader.Cancel() {
 			p.waitForReadLoop()
 		}
-		_ = p.cancelReader.Close()
+		_ = p.inputReader.Close()
 	}
 
 	// Wait for all handlers to finish.
@@ -645,7 +647,7 @@ func (p *Program) shutdown(kill bool) {
 // reader. You can return control to the Program with RestoreTerminal.
 func (p *Program) ReleaseTerminal() error {
 	atomic.StoreUint32(&p.ignoreSignals, 1)
-	p.cancelReader.Cancel()
+	p.inputReader.Cancel()
 	p.waitForReadLoop()
 
 	if p.renderer != nil {
@@ -666,7 +668,7 @@ func (p *Program) RestoreTerminal() error {
 	if err := p.initTerminal(); err != nil {
 		return err
 	}
-	if err := p.initCancelReader(); err != nil {
+	if err := p.initInputReader(); err != nil {
 		return err
 	}
 	if p.altScreenWasActive {

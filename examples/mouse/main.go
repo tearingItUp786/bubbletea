@@ -17,7 +17,7 @@ func main() {
 }
 
 type model struct {
-	mouseEvent tea.MouseEvent
+	mouseEvent tea.MouseMsg
 }
 
 func (m model) Init() tea.Cmd {
@@ -32,7 +32,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		}
 
 	case tea.MouseMsg:
-		return m, tea.Printf("(X: %d, Y: %d) %s", msg.X, msg.Y, tea.MouseEvent(msg))
+		return m, tea.Printf("(X: %d, Y: %d) %s", msg.X, msg.Y, tea.MouseMsg(msg))
 	}
 
 	return m, nil
